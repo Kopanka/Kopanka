@@ -1,0 +1,3 @@
+# Kopanka
+
+Мій застосунок Kopanka.
