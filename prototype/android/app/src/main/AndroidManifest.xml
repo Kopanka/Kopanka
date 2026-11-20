@@ -5,13 +5,16 @@
         android:label="Kopanka"
         android:allowBackup="true"
         android:supportsRtl="true">
+        <!-- MAP-002A branch only: map-only technical preview -->
         <activity
-            android:name=".MainActivity"
+            android:name=".MapPreviewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Legacy activity preserved and not launched by this preview. -->
+        <activity android:name=".MainActivity" android:exported="false" />
     </application>
 </manifest>
