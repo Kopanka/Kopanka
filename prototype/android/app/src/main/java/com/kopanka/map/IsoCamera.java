@@ -23,12 +23,32 @@ public final class IsoCamera {
         float b = (sy - height / 2f) / ZOOM + worldY(centerX, centerY);
         return b / TILE_HEIGHT - a / TILE_WIDTH;
     }
-    public void drag(float dxScreen, float dyScreen) {
+    /**
+     * Keep the FULL rectangular viewport inside the diamond-shaped world.
+     * The inverse-isometric projection maps screen corners to a col/row
+     * margin of halfWidth/(zoom*tileWidth) + halfHeight/(zoom*tileHeight).
+     * Clamping only the camera center to 0..511 leaves most of the screen
+     * outside the world near its corners; clamp by the viewport margin instead.
+     */
+    public void constrainToViewport(int width, int height) {
+        if (width <= 0 || height <= 0) return;
+        float margin = width / (2f * ZOOM * TILE_WIDTH)
+                     + height / (2f * ZOOM * TILE_HEIGHT);
+        float min = margin;
+        float max = WorldMap.SIZE - 1f - margin;
+        if (min > max) {
+            centerX = centerY = (WorldMap.SIZE - 1f) / 2f;
+            return;
+        }
+        centerX = Math.max(min, Math.min(max, centerX));
+        centerY = Math.max(min, Math.min(max, centerY));
+    }
+
+    public void drag(float dxScreen, float dyScreen, int width, int height) {
         float dx = dxScreen / ZOOM, dy = dyScreen / ZOOM;
         centerX -= dx / TILE_WIDTH + dy / TILE_HEIGHT;
         centerY -= dy / TILE_HEIGHT - dx / TILE_WIDTH;
-        centerX = Math.max(0, Math.min(WorldMap.SIZE - 1, centerX));
-        centerY = Math.max(0, Math.min(WorldMap.SIZE - 1, centerY));
+        constrainToViewport(width, height);
     }
     public float centerCol() { return centerX; }
     public float centerRow() { return centerY; }
