@@ -85,3 +85,23 @@ separate MAP-002A proof-of-concept on a test device.
 Acceptance: install the new stable app beside both older apps, verify same
 fingerprint across two CI debug builds, then confirm Android can update
 the stable app without uninstalling and without losing fog state.
+
+## Fog vs out-of-world diagnostic (2026-11-23)
+
+Temporary test-only palette in `MapSurface.java`:
+- **Purple** `#51435F`: unexplored logical cells **inside** the 512x512 world.
+  Opaque diamonds cover hidden geography. Tap these cells to reveal terrain.
+- **Dark teal** `#142021`: area **outside** the world's logical footprint.
+  Tapping it must not reveal a tile.
+- Regular green/blue/gray: explored terrain, unchanged.
+- Zoom 1.2x and screen-space camera clamps remain unchanged.
+
+The diagnostic color is not final art; remove it when the camera-edge test
+is accepted and the final fog shader/art is available. This screenshot-based
+test must compare right edge, land edge, and bottom sea edge. At every
+edge, clearly identify whether the empty region is purple fog (valid) or
+dark-teal outside-world space (camera or world boundary). Record both
+observed behavior and screenshots before coordinator acceptance.
+
+Stable test package remains `com.kopanka.maptest.stable`; incremented
+`versionCode` from 2 to 3, preserving data and using the same debug signing key.
