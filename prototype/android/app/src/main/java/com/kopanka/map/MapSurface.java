@@ -14,6 +14,11 @@ public final class MapSurface extends View {
     private final IsoCamera camera = new IsoCamera();
     private final FogStore fog;
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    // MAP-002A diagnostic palette: unexplored map cells are purple;
+    // the area outside the 512x512 world remains dark teal.
+    // These colors are temporary and do not disclose hidden geography.
+    private static final int OUTSIDE_WORLD_COLOR = 0xFF142021;
+    private static final int UNEXPLORED_FOG_COLOR = 0xFF51435F;
     private final Path diamond = new Path();
     private float downX, downY, lastX, lastY;
     private boolean moving;
@@ -23,7 +28,7 @@ public final class MapSurface extends View {
         fog = new FogStore(context);
         // Initial technical discovery, without introducing a hero or game mechanics.
         if (fog.reveal(256, 254, 10)) fog.save();
-        setBackgroundColor(Color.rgb(20, 31, 32));
+        setBackgroundColor(OUTSIDE_WORLD_COLOR);
     }
     @Override protected void onSizeChanged(int w, int h, int oldW, int oldH) {
         super.onSizeChanged(w, h, oldW, oldH);
@@ -53,16 +58,21 @@ public final class MapSurface extends View {
         for(int sum=minX+minY;sum<=maxX+maxY;sum++) {
             for(int y=Math.max(minY,sum-maxX);y<=Math.min(maxY,sum-minX);y++) {
                 int x=sum-y;
-                if(!fog.isExplored(x,y)) continue;
                 float px=camera.screenX(x,y,w);
                 float py=camera.screenY(x,y,h);
+                if (!fog.isExplored(x,y)) {
+                    // Opaque diagnostic fog over the logical cell footprint.
+                    // Do not call terrain() or draw features for unexplored cells.
+                    drawDiamond(canvas,px,py,UNEXPLORED_FOG_COLOR);
+                    continue;
+                }
                 int type=world.terrain(x,y);
                 drawGround(canvas,px,py,type);
                 drawFeature(canvas,px,py,type);
             }
         }
     }
-    private void drawGround(Canvas canvas,float x,float y,int kind) {
+    private void drawDiamond(Canvas canvas, float x, float y, int color) {
         float hw=IsoCamera.TILE_WIDTH*IsoCamera.ZOOM/2f;
         float hh=IsoCamera.TILE_HEIGHT*IsoCamera.ZOOM/2f;
         diamond.reset();
@@ -71,6 +81,11 @@ public final class MapSurface extends View {
         diamond.lineTo(x,y+hh);
         diamond.lineTo(x-hw,y);
         diamond.close();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(color);
+        canvas.drawPath(diamond,paint);
+    }
+    private void drawGround(Canvas canvas,float x,float y,int kind) {
         int color;
         switch(kind){
             case WorldMap.RIVER: color=0xFF5592A7;break;
@@ -80,9 +95,7 @@ public final class MapSurface extends View {
             case WorldMap.DECIDUOUS:color=0xFF9EB57C;break;
             default:color=0xFFADC18C;
         }
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(color);
-        canvas.drawPath(diamond,paint);
+        drawDiamond(canvas,x,y,color);
     }
     private void drawFeature(Canvas canvas,float x,float y,int kind) {
         float s=IsoCamera.ZOOM;
