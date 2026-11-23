@@ -7,11 +7,29 @@ android {
     compileSdk 35
 
     defaultConfig {
-        // Separate test application: never replaces the existing com.kopanka install.
-        applicationId 'com.kopanka.maptest'
+        // One-time new identity avoids replacing old independently signed MAP-002A.
+        // This is never the production package com.kopanka.
+        applicationId 'com.kopanka.maptest.stable'
         minSdk 23
         targetSdk 35
-        versionCode 1
-        versionName '0.2.0-maptest'
+        versionCode 2
+        versionName '0.2.1-maptest-signed'
+    }
+
+    signingConfigs {
+        mapTestDebug {
+            // Prepared from the versioned, PUBLIC, non-production debug keystore.
+            // Never use this signing key for any release or production application.
+            storeFile file('../ci/maptest-debug.keystore')
+            storePassword 'android'
+            keyAlias 'maptestdebug'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.mapTestDebug
+        }
     }
 }
