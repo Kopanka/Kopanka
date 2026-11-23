@@ -29,10 +29,20 @@ jobs:
           gradle-version: '8.9'
       - name: Install Android platform
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Prepare pinned TEST-ONLY debug signing keystore
+        shell: bash
+        run: |
+          base64 --decode prototype/android/ci/maptest-debug.keystore.b64 > prototype/android/ci/maptest-debug.keystore
+          echo '4b157ca10bb707571c5145587deced8a3850d3ff25731b7c4391e7d61000762a  prototype/android/ci/maptest-debug.keystore' | sha256sum --check
       - name: Build debug APK
         run: gradle --project-dir prototype/android :app:assembleDebug
+      - name: Verify APK signing identity
+        shell: bash
+        run: |
+          keytool -printcert -jarfile prototype/android/app/build/outputs/apk/debug/app-debug.apk > /tmp/maptest-cert.txt
+          grep -F '6E:3F:1C:47:F5:D5:E0:15:68:60:21:60:6D:2B:BA:F9:A8:B2:39:2E:BA:1C:DD:9C:AE:4C:2E:11:03:6E:9D:29' /tmp/maptest-cert.txt
       - uses: actions/upload-artifact@v4
         if: success()
         with:
-          name: kopanka-prototype-debug-apk
+          name: kopanka-maptest-stable-debug-apk
           path: prototype/android/app/build/outputs/apk/debug/app-debug.apk
