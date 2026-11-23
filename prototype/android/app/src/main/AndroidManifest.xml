@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:theme="@style/AppTheme"
-        android:label="Kopanka"
+        android:label="KOPANKA Map Test"
         android:allowBackup="true"
         android:supportsRtl="true">
-        <!-- MAP-002A branch only: map-only technical preview -->
+        <!-- Isolated test app. Production Kopanka uses a different applicationId. -->
         <activity
             android:name=".MapPreviewActivity"
             android:exported="true">
@@ -14,7 +14,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- Legacy activity preserved and not launched by this preview. -->
         <activity android:name=".MainActivity" android:exported="false" />
     </application>
 </manifest>
