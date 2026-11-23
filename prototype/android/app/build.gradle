@@ -7,10 +7,11 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.kopanka'
+        // Separate test application: never replaces the existing com.kopanka install.
+        applicationId 'com.kopanka.maptest'
         minSdk 23
         targetSdk 35
         versionCode 1
-        versionName '1.0'
+        versionName '0.2.0-maptest'
     }
 }
