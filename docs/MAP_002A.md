@@ -36,3 +36,17 @@ prototype on Android Canvas, not a verified production engine. No hardware perfo
 measurement or signed release APK is claimed.
 
 A coordinator must approve MAP-001 in docs/DECISIONS.md before final asset production.
+
+## MAP-002A camera-edge fix (2026-11-23)
+After device testing of land and sea borders, camera movement now clamps the entire
+rectangular viewport to the world (0..511 logical cell centers), based on inverse
+isometric screen-corner projection and the fixed 1.2x zoom. This avoids large
+out-of-world black areas near the diamond's tips; fog INSIDE the world is unchanged.
+The camera constraint is recalculated on Android view size changes and each drag.
+
+Retest on the separate `com.kopanka.maptest` app: pan to all 4 world sides and
+diamond corners, including a land and a sea end. The screen should no longer be
+dominated by empty out-of-world background. Ensure one-finger panning remains
+smooth, zoom remains fixed, and explored cells still persist after restart.
+Dark unexplored cells remain legitimate fog; test may need tapping to reveal them.
+Status stays draft until physical device regression checks finish.
