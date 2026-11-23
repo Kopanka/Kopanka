@@ -25,6 +25,11 @@ public final class MapSurface extends View {
         if (fog.reveal(256, 254, 10)) fog.save();
         setBackgroundColor(Color.rgb(20, 31, 32));
     }
+    @Override protected void onSizeChanged(int w, int h, int oldW, int oldH) {
+        super.onSizeChanged(w, h, oldW, oldH);
+        camera.constrainToViewport(w, h);
+    }
+
     @Override protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int w = getWidth(), h = getHeight();
@@ -128,7 +133,7 @@ public final class MapSurface extends View {
                 if(event.getPointerCount()!=1)return true;
                 float x=event.getX(),y=event.getY();
                 if(Math.hypot(x-downX,y-downY)>12*getResources().getDisplayMetrics().density)moving=true;
-                if(moving){camera.drag(x-lastX,y-lastY);invalidate();}
+                if(moving){camera.drag(x-lastX,y-lastY,getWidth(),getHeight());invalidate();}
                 lastX=x;lastY=y;return true;
             case MotionEvent.ACTION_UP:
                 if(!moving){
