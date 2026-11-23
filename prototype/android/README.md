@@ -15,3 +15,7 @@ gradle :app:assembleDebug
 ```
 
 Тестовий APK після успішної збірки: `app/build/outputs/apk/debug/app-debug.apk`. Підпис релізної збірки й перевірка на телефоні — окремі кроки. Стан збірки показує workflow `Prototype Android debug APK` у GitHub Actions.
+
+## MAP-002A diagnostic test build (2026-11-23)
+
+У гілці MAP-002A окремий тестовий застосунок `com.kopanka.maptest.stable` має фіксований debug-підпис, `versionCode 3` і тимчасові діагностичні кольори: фіолетовий — нерозвідані клітини всередині світу, темно-бірюзовий — простір поза картою. Оновлення встановлюється поверх попереднього Map Test Stable (не поверх основної KOPANKA). Див. `../../docs/MAP_002A.md`.
