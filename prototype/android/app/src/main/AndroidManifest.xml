@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:theme="@style/AppTheme"
-        android:label="KOPANKA Map Test"
+        android:label="KOPANKA Map Test Stable"
         android:allowBackup="true"
         android:supportsRtl="true">
-        <!-- Isolated test app. Production Kopanka uses a different applicationId. -->
+        <!-- Separate test-only installation. Production Kopanka remains untouched. -->
         <activity
             android:name=".MapPreviewActivity"
             android:exported="true">
