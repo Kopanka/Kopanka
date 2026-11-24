@@ -11,6 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -20,6 +22,14 @@ import java.util.Map;
  */
 public final class MapAssetCatalog {
     public static final String ROOT = "map/";
+    private static final int MAX_ENTRIES = 4096;
+    private static final Set<String> LAYERS;
+    static {
+        Set<String> names = new HashSet<>();
+        Collections.addAll(names, "ground", "slope", "coast", "water", "river",
+                           "scenery", "structure", "fog");
+        LAYERS = Collections.unmodifiableSet(names);
+    }
     private final AssetManager assetManager;
     private final Map<String, Entry> entries;
 
@@ -33,17 +43,18 @@ public final class MapAssetCatalog {
             id = required(json, "id");
             path = required(json, "path");
             layer = required(json, "layer");
+            if (!LAYERS.contains(layer)) throw new IOException("Invalid layer: " + layer);
             version = required(json, "version");
             license = required(json, "license");
-            widthPx = json.getInt("widthPx");
-            heightPx = json.getInt("heightPx");
-            anchorX = json.getInt("anchorX");
-            anchorY = json.getInt("anchorY");
-            footprintCols = json.getInt("footprintCols");
-            footprintRows = json.getInt("footprintRows");
+            widthPx = strictInteger(json, "widthPx");
+            heightPx = strictInteger(json, "heightPx");
+            anchorX = strictInteger(json, "anchorX");
+            anchorY = strictInteger(json, "anchorY");
+            footprintCols = strictInteger(json, "footprintCols");
+            footprintRows = strictInteger(json, "footprintRows");
             sortFootY = (float)json.getDouble("sortFootY");
-            variant = json.optString("variant", "");
-            adjacencyMask = json.optString("adjacencyMask", "");
+            variant = optionalString(json, "variant");
+            adjacencyMask = optionalString(json, "adjacencyMask");
             if (widthPx < 1 || heightPx < 1 || widthPx > 8192 || heightPx > 8192)
                 throw new IOException("Invalid dimensions: " + id);
             if (footprintCols < 1 || footprintRows < 1 || footprintCols > 64 || footprintRows > 64)
@@ -65,6 +76,26 @@ public final class MapAssetCatalog {
         String value = json.getString(name);
         if (value.trim().isEmpty()) throw new IOException("Empty field: " + name);
         return value;
+    }
+
+    private static int strictInteger(JSONObject json, String name)
+            throws JSONException, IOException {
+        Object value = json.get(name);
+        if (!(value instanceof Integer) && !(value instanceof Long))
+            throw new IOException("Non-integer field: " + name);
+        long n = ((Number)value).longValue();
+        if (n < Integer.MIN_VALUE || n > Integer.MAX_VALUE)
+            throw new IOException("Integer out of range: " + name);
+        return (int)n;
+    }
+
+    private static String optionalString(JSONObject json, String name)
+            throws JSONException, IOException {
+        if (!json.has(name)) return "";
+        Object value = json.get(name);
+        if (!(value instanceof String))
+            throw new IOException("Non-string field: " + name);
+        return (String)value;
     }
 
     private MapAssetCatalog(AssetManager manager, Map<String, Entry> entries) {
@@ -89,7 +120,11 @@ public final class MapAssetCatalog {
                 out.write(buffer, 0, count);
             }
             JSONObject json = new JSONObject(out.toString("UTF-8"));
+            if (strictInteger(json, "schemaVersion") != 1)
+                throw new IOException("Unsupported map asset schemaVersion");
             JSONArray assets = json.getJSONArray("assets");
+            if (assets.length() == 0 || assets.length() > MAX_ENTRIES)
+                throw new IOException("Invalid map asset count");
             Map<String, Entry> entries = new LinkedHashMap<>();
             for (int i = 0; i < assets.length(); i++) {
                 Entry entry = new Entry(assets.getJSONObject(i));
