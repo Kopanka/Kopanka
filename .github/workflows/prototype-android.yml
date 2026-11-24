@@ -4,10 +4,14 @@ on:
   push:
     paths:
       - 'prototype/android/**'
+      - 'tools/validate_map_assets.py'
+      - 'tools/test_validate_map_assets.py'
       - '.github/workflows/prototype-android.yml'
   pull_request:
     paths:
       - 'prototype/android/**'
+      - 'tools/validate_map_assets.py'
+      - 'tools/test_validate_map_assets.py'
       - '.github/workflows/prototype-android.yml'
   workflow_dispatch:
 
@@ -27,6 +31,16 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+      - name: Test MAP-003 asset manifest validator
+        run: python3 tools/test_validate_map_assets.py
+      - name: Validate artist assets when delivered
+        shell: bash
+        run: |
+          if [ -f prototype/android/app/src/main/assets/map/manifest.json ]; then
+            python3 tools/validate_map_assets.py prototype/android/app/src/main/assets/map/manifest.json
+          else
+            echo 'MAP-003: no artist manifest yet, Android placeholder renderer unchanged'
+          fi
       - name: Install Android platform
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: Prepare pinned TEST-ONLY debug signing keystore
