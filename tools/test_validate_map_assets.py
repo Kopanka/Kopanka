@@ -36,6 +36,7 @@ class ManifestTests(unittest.TestCase):
 
     def test_bad_dimensions(self):
         self.asset["widthPx"] = 129
+        self.asset["layer"] = "scenery"
         with self.assertRaisesRegex(ValueError, "dimensions disagree"):
             self.verify()
 
