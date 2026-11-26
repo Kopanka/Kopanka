@@ -41,6 +41,13 @@ jobs:
           else
             echo 'MAP-003: no artist manifest yet, Android placeholder renderer unchanged'
           fi
+      - name: Validate complete MAP-003 v1.4 art package and demo geography
+        shell: bash
+        run: |
+          if [ -f docs/art/map-003-v1.4/tools/validate_package.py ]; then
+            python3 -m pip install --disable-pip-version-check 'Pillow>=10,<13'
+            python3 docs/art/map-003-v1.4/tools/validate_package.py
+          fi
       - name: Install Android platform
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: Prepare pinned TEST-ONLY debug signing keystore
