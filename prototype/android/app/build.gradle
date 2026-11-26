@@ -12,8 +12,8 @@ android {
         applicationId 'com.kopanka.maptest.stable'
         minSdk 23
         targetSdk 35
-        versionCode 4
-        versionName '0.3.0-map003-png-preview'
+        versionCode 5
+        versionName '0.3.1-camera-fog-fix'
     }
 
     signingConfigs {
