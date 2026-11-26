@@ -3,7 +3,8 @@
 from pathlib import Path
 import json, struct, zlib, sys
 from PIL import Image
-ROOT=Path(__file__).resolve().parent.parent
+ROOT=Path(__file__).resolve().parents[4]
+ART=Path(__file__).resolve().parents[1]
 MAP=ROOT/'prototype/android/app/src/main/assets/map'
 manifest=json.loads((MAP/'manifest.json').read_text(encoding='utf-8'))
 assert manifest['schemaVersion']==1
@@ -14,7 +15,7 @@ for a in assets:
   assert a['id'] not in ids
   ids.add(a['id'])
   rel=Path(a['path']); assert not rel.is_absolute() and '..' not in rel.parts
-  path=MAP/rel; src=ROOT/'source_svg'/rel.with_suffix('.svg')
+  path=MAP/rel; src=ART/'source_svg'/rel.with_suffix('.svg')
   assert path.is_file() and src.is_file()
   assert src.read_text().startswith('<svg')
   assert a['version'] and a['license']
@@ -36,7 +37,7 @@ for a in assets:
 assert not fails, fails
 assert all(f'river_mask_{m:02}' in ids and f'coast_mask_{m:02}' in ids for m in range(1,16))
 assert all('coast_corner_'+d in ids for d in ('ne','se','sw','nw'))
-scene=json.loads((ROOT/'demo/map_32x32.json').read_text())
+scene=json.loads((ART/'demo/map_32x32.json').read_text())
 assert scene['width']==scene['height']==32
 cells=scene['cells'];assert len(cells)==32 and all(len(r)==32 for r in cells)
 route=[(p['col'],p['row']) for p in scene['riverPath']];assert len(route)==len(set(route))
