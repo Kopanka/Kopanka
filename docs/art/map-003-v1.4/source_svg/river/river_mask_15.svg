@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="64" viewBox="0 0 128 64"><defs>
+<linearGradient id="grass" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#b2cc72"/><stop offset=".5" stop-color="#8eaf55"/><stop offset="1" stop-color="#70944a"/></linearGradient>
+<linearGradient id="earth" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#c6ae72"/><stop offset="1" stop-color="#9f8355"/></linearGradient>
+<linearGradient id="rock" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#cfccc0"/><stop offset=".5" stop-color="#8f9287"/><stop offset="1" stop-color="#555e5e"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#299eae"/><stop offset=".6" stop-color="#166d94"/><stop offset="1" stop-color="#125276"/></linearGradient>
+<linearGradient id="river" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#55c5d3"/><stop offset=".7" stop-color="#268bac"/><stop offset="1" stop-color="#136282"/></linearGradient>
+<clipPath id="diamond"><path d="M 64,0 L128,32 64,64 0,32Z"/></clipPath>
+</defs><g><path d="M96 16 Q64 32 64 32 M96 48 Q64 32 64 32 M32 48 Q64 32 64 32 M32 16 Q64 32 64 32" stroke="#bdc596" stroke-width="20" stroke-linejoin="round" stroke-linecap="round" fill="none"/><path d="M96 16 Q64 32 64 32 M96 48 Q64 32 64 32 M32 48 Q64 32 64 32 M32 16 Q64 32 64 32" stroke="#257b9e" stroke-width="16" stroke-linejoin="round" stroke-linecap="round" fill="none"/><path d="M96 16 Q64 32 64 32 M96 48 Q64 32 64 32 M32 48 Q64 32 64 32 M32 16 Q64 32 64 32" stroke="#54afc5" stroke-width="5" opacity=".45" stroke-linejoin="round" stroke-linecap="round" fill="none"/><circle cx="64" cy="32" r="9" fill="#2b8eaa"/></g></svg>
