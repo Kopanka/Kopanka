@@ -1,6 +1,7 @@
 package com.kopanka.map;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Bitmap;
 import android.graphics.RectF;
@@ -23,6 +24,10 @@ public final class MapSurface extends View {
     private final WorldMap world = new WorldMap();
     private final IsoCamera camera = new IsoCamera();
     private final FogStore fog;
+    private final SharedPreferences cameraPrefs;
+    private static final String CAMERA_PREFS = "kopanka_map_camera_v1";
+    private static final String CAMERA_COL = "center_col";
+    private static final String CAMERA_ROW = "center_row";
     private final MapAssetCatalog art;
     private final DemoMap demo;
     private final RectF spriteBounds = new RectF();
@@ -55,6 +60,11 @@ public final class MapSurface extends View {
     public MapSurface(Context context) {
         super(context);
         fog = new FogStore(context);
+        cameraPrefs = context.getSharedPreferences(CAMERA_PREFS, Context.MODE_PRIVATE);
+        if (cameraPrefs.contains(CAMERA_COL) && cameraPrefs.contains(CAMERA_ROW)) {
+            camera.restoreCenter(cameraPrefs.getFloat(CAMERA_COL, 256f),
+                                 cameraPrefs.getFloat(CAMERA_ROW, 254f));
+        }
         MapAssetCatalog catalog = null;
         DemoMap example = null;
         try {
@@ -72,6 +82,16 @@ public final class MapSurface extends View {
     @Override protected void onSizeChanged(int w, int h, int oldW, int oldH) {
         super.onSizeChanged(w, h, oldW, oldH);
         camera.constrainToViewport(w, h);
+    }
+
+    private void saveCamera() {
+        cameraPrefs.edit().putFloat(CAMERA_COL, camera.centerCol())
+                .putFloat(CAMERA_ROW, camera.centerRow()).apply();
+    }
+
+    @Override protected void onDetachedFromWindow() {
+        saveCamera();
+        super.onDetachedFromWindow();
     }
 
     @Override protected void onDraw(Canvas canvas) {
@@ -188,8 +208,8 @@ public final class MapSurface extends View {
                 if (fog.isExplored(col,row)) continue;
                 float px=camera.screenX(col,row,w),py=camera.screenY(col,row,h);
                 drawDiamond(canvas,px,py,UNEXPLORED_FOG_COLOR);
-                if (demo!=null && demo.at(col,row)!=null)
-                    drawSprite(canvas,"fog_unexplored_01",px,py);
+                // Single approved diagnostic fog color. The v1.4 fog PNG is
+                // darker than purple; drawing it on top caused the two-tone bug.
             }
         }
     }
@@ -302,6 +322,7 @@ public final class MapSurface extends View {
                 if(moving){camera.drag(x-lastX,y-lastY,getWidth(),getHeight());invalidate();}
                 lastX=x;lastY=y;return true;
             case MotionEvent.ACTION_UP:
+                if(moving) saveCamera();
                 if(!moving){
                     int col=Math.round(camera.colFromScreen(event.getX(),event.getY(),getWidth(),getHeight()));
                     int row=Math.round(camera.rowFromScreen(event.getX(),event.getY(),getWidth(),getHeight()));
@@ -309,7 +330,7 @@ public final class MapSurface extends View {
                     performClick();
                 }
                 return true;
-            case MotionEvent.ACTION_CANCEL:return true;
+            case MotionEvent.ACTION_CANCEL: if(moving) saveCamera(); return true;
             default:return true;
         }
     }
