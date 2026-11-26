@@ -110,7 +110,7 @@ public final class MapSurface extends View {
                         : "mountain".equals(cell.terrain) ? "ground_earth_01"
                         : "meadow".equals(cell.terrain) ? "ground_meadow_01"
                         : (col*7+row*11)%9==0 ? "ground_grass_02":"ground_grass_01";
-                    if (!drawSprite(canvas,base,px,py)) drawGround(canvas,px,py,WorldMap.PLAIN);
+                    if (!drawSprite(canvas,base,px,py)) drawDiamond(canvas,px,py,0xFFADC18C);
                 }
             }
         }
