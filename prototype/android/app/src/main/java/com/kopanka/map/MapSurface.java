@@ -174,7 +174,7 @@ public final class MapSurface extends View {
         Collections.sort(scenery,new Comparator<Sprite>() {
             @Override public int compare(Sprite a,Sprite b) {
                 int byY=Float.compare(a.depth,b.depth);
-                return byY!=0?byY:Integer.compare(a.col-b.row,b.col-a.row);
+                return byY!=0?byY:Integer.compare(a.col-a.row,b.col-b.row);
             }
         });
         for(Sprite item:scenery)
