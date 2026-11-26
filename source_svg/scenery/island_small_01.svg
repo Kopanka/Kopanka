@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="166" height="130" viewBox="0 0 166 130"><defs>
+<linearGradient id="grass" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#b2cc72"/><stop offset=".5" stop-color="#8eaf55"/><stop offset="1" stop-color="#70944a"/></linearGradient>
+<linearGradient id="earth" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#c6ae72"/><stop offset="1" stop-color="#9f8355"/></linearGradient>
+<linearGradient id="rock" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#cfccc0"/><stop offset=".5" stop-color="#8f9287"/><stop offset="1" stop-color="#555e5e"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#299eae"/><stop offset=".6" stop-color="#166d94"/><stop offset="1" stop-color="#125276"/></linearGradient>
+<linearGradient id="river" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#55c5d3"/><stop offset=".7" stop-color="#268bac"/><stop offset="1" stop-color="#136282"/></linearGradient>
+<clipPath id="diamond"><path d="M 64,0 L128,32 64,64 0,32Z"/></clipPath>
+</defs><ellipse cx="83" cy="88" rx="57" ry="18" fill="#115675" opacity=".2"/>
+<path d="M29 88L46 76 76 65 123 75 139 90 116 104 66 106Z" fill="#d7c68f"/>
+<path d="M41 83L66 65 117 74 127 87 103 100 66 99Z" fill="#89aa56"/>
+<path d="M45 85L69 74 75 97" fill="#a6b96b"/>
+<path d="M26 97q23 7 44 5 M103 104q22 0 38 -11" stroke="#d7f4e5" fill="none" stroke-width="2.5" opacity=".7"/><ellipse cx="85" cy="87.92" rx="5.76" ry="1.92" fill="#274b39" opacity=".24"/>
+ <path d="M85 57.2L85 86.96" stroke="#745a38" stroke-width="1.5839999999999999"/>
+ <path d="M85 55.28Q82.12 63.92 79.72 68.72 L83.08 67.76 Q78.28 74.96000000000001 74.92 79.28L79.72 77.84Q75.88 83.12 72.52 85.52Q82.12 82.16 85 83.12Q88.36 81.68 97.48 85.52L90.76 77.36L95.08 79.28L87.4 67.76L90.76 68.72Z" fill="#174a3d"/>
+ <path d="M85 57.68Q82.6 66.32 80.68 68.72M83.56 66.8Q79.72 74.96000000000001 77.8 77.36M84.52 74.48Q78.28 82.16 75.88 82.64" stroke="#6da06c" stroke-width="1.248" opacity=".8" fill="none"/>
+ <path d="M85.96 60.08 Q88.84 73.52 93.64 77.84 M85.96 73.52Q92.2 82.16 94.6 83.6" stroke="#0e362e" stroke-width="0.96" opacity=".65" fill="none"/>
+ <ellipse cx="105" cy="88.64" rx="4.92" ry="1.64" fill="#274b39" opacity=".24"/>
+ <path d="M105 62.400000000000006L105 87.82" stroke="#745a38" stroke-width="1.3529999999999998"/>
+ <path d="M105 60.760000000000005Q102.54 68.14 100.49 72.24 L103.36 71.42 Q99.26 77.57 96.39 81.26L100.49 80.03Q97.21000000000001 84.54 94.34 86.59Q102.54 83.72 105 84.54Q107.87 83.31 115.66 86.59L109.92 79.62L113.61 81.26L107.05 71.42L109.92 72.24Z" fill="#174a3d"/>
+ <path d="M105 62.81Q102.95 70.19 101.31 72.24M103.77 70.6Q100.49 77.57 98.85 79.62M104.59 77.16Q99.26 83.72 97.21000000000001 84.13" stroke="#6da06c" stroke-width="1.066" opacity=".8" fill="none"/>
+ <path d="M105.82 64.86 Q108.28 76.34 112.38 80.03 M105.82 76.34Q111.15 83.72 113.2 84.95" stroke="#0e362e" stroke-width="0.82" opacity=".65" fill="none"/>
+ </svg>
