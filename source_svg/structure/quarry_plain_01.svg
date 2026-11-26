@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="150" viewBox="0 0 240 150"><defs>
+<linearGradient id="grass" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#b2cc72"/><stop offset=".5" stop-color="#8eaf55"/><stop offset="1" stop-color="#70944a"/></linearGradient>
+<linearGradient id="earth" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#c6ae72"/><stop offset="1" stop-color="#9f8355"/></linearGradient>
+<linearGradient id="rock" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#cfccc0"/><stop offset=".5" stop-color="#8f9287"/><stop offset="1" stop-color="#555e5e"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#299eae"/><stop offset=".6" stop-color="#166d94"/><stop offset="1" stop-color="#125276"/></linearGradient>
+<linearGradient id="river" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#55c5d3"/><stop offset=".7" stop-color="#268bac"/><stop offset="1" stop-color="#136282"/></linearGradient>
+<clipPath id="diamond"><path d="M 64,0 L128,32 64,64 0,32Z"/></clipPath>
+</defs><ellipse cx="120" cy="107" rx="85" ry="26" fill="#6f704c" opacity=".2"/>
+<path d="M25 89L67 48 144 40 216 78 175 120 68 127Z" fill="#c6aa70" stroke="#9f8659" stroke-width="2"/>
+<path d="M52 88L83 62 142 59 185 81 155 106 90 111Z" fill="#847b68"/>
+<path d="M52 88L90 111 155 106 185 81 185 97 152 119 85 123 52 100Z" fill="#a69676"/>
+<path d="M82 63L143 59 161 69 101 75Z" fill="#ded1b5"/>
+<path d="M103 81L167 81 148 95 107 98Z" fill="#c5b69a"/>
+<path d="M185 81L216 78 195 99 172 101Z" fill="#b8a07a"/>
+<path d="M31 108l14 -9 15 8-7 12Z" fill="#9a9787"/><path d="M197 114l12 -10 13 9-5 10Z" fill="#c9bd9d"/>
+<path d="M185 57l25 10v18l-25 -9Z" fill="#ad7e41"/><path d="M181 55l20 -15 32 17-22 13Z" fill="#8d5b32"/><path d="M198 69v23M222 63v21" stroke="#674e35" stroke-width="3"/></svg>

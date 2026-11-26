@@ -1,0 +1,36 @@
+{
+  "pngFiles": 62,
+  "svgFiles": 62,
+  "demoCols": 32,
+  "demoRows": 32,
+  "riverCells": 37,
+  "seamEdgeSamples": [
+    {
+      "edge": "N",
+      "alphaAtRiverLanding": 255,
+      "oppositeAlpha": 255,
+      "alphaDifference": 0
+    },
+    {
+      "edge": "E",
+      "alphaAtRiverLanding": 255,
+      "oppositeAlpha": 255,
+      "alphaDifference": 0
+    },
+    {
+      "edge": "S",
+      "alphaAtRiverLanding": 255,
+      "oppositeAlpha": 255,
+      "alphaDifference": 0
+    },
+    {
+      "edge": "W",
+      "alphaAtRiverLanding": 255,
+      "oppositeAlpha": 255,
+      "alphaDifference": 0
+    }
+  ],
+  "sourceArtwork": "editable SVG generated and modified with Python",
+  "androidDeviceTest": "NOT RUN",
+  "artAcceptance": "PENDING"
+}

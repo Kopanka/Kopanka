@@ -1,0 +1,7542 @@
+{
+ "width": 32,
+ "height": 32,
+ "worldOrigin": "col=0,row=0",
+ "riverPath": [
+  {
+   "col": 5,
+   "row": 3
+  },
+  {
+   "col": 5,
+   "row": 4
+  },
+  {
+   "col": 5,
+   "row": 5
+  },
+  {
+   "col": 5,
+   "row": 6
+  },
+  {
+   "col": 6,
+   "row": 6
+  },
+  {
+   "col": 7,
+   "row": 6
+  },
+  {
+   "col": 8,
+   "row": 6
+  },
+  {
+   "col": 8,
+   "row": 7
+  },
+  {
+   "col": 8,
+   "row": 8
+  },
+  {
+   "col": 8,
+   "row": 9
+  },
+  {
+   "col": 9,
+   "row": 9
+  },
+  {
+   "col": 10,
+   "row": 9
+  },
+  {
+   "col": 11,
+   "row": 9
+  },
+  {
+   "col": 12,
+   "row": 9
+  },
+  {
+   "col": 12,
+   "row": 10
+  },
+  {
+   "col": 12,
+   "row": 11
+  },
+  {
+   "col": 12,
+   "row": 12
+  },
+  {
+   "col": 13,
+   "row": 12
+  },
+  {
+   "col": 14,
+   "row": 12
+  },
+  {
+   "col": 15,
+   "row": 12
+  },
+  {
+   "col": 16,
+   "row": 12
+  },
+  {
+   "col": 16,
+   "row": 13
+  },
+  {
+   "col": 16,
+   "row": 14
+  },
+  {
+   "col": 16,
+   "row": 15
+  },
+  {
+   "col": 17,
+   "row": 15
+  },
+  {
+   "col": 18,
+   "row": 15
+  },
+  {
+   "col": 19,
+   "row": 15
+  },
+  {
+   "col": 20,
+   "row": 15
+  },
+  {
+   "col": 20,
+   "row": 16
+  },
+  {
+   "col": 20,
+   "row": 17
+  },
+  {
+   "col": 20,
+   "row": 18
+  },
+  {
+   "col": 21,
+   "row": 18
+  },
+  {
+   "col": 22,
+   "row": 18
+  },
+  {
+   "col": 23,
+   "row": 18
+  },
+  {
+   "col": 24,
+   "row": 18
+  },
+  {
+   "col": 24,
+   "row": 19
+  },
+  {
+   "col": 24,
+   "row": 20
+  }
+ ],
+ "objects": [
+  {
+   "id": "mine_mountain_small",
+   "col": 8,
+   "row": 3
+  },
+  {
+   "id": "cave_entrance_small",
+   "col": 3,
+   "row": 12
+  },
+  {
+   "id": "quarry_plain_01",
+   "col": 24,
+   "row": 7
+  },
+  {
+   "id": "settlement_hamlet_01",
+   "col": 8,
+   "row": 22
+  },
+  {
+   "id": "island_small_01",
+   "col": 29,
+   "row": 24
+  }
+ ],
+ "cells": [
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_01"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_02"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_02"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 4,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mine_mountain_small"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_01"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_01"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 3,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 12,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "quarry_plain_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_02"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "mountain_02"
+    ]
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "mountain",
+    "elevation": 2,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 3,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 12,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "cave_entrance_small"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 3,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 12,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 1,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 4,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 4,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 3,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 12,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 4,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 5,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 3,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 10,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 12,
+    "coastMask": 2,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 4,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 5,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 2,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 1,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "settlement_hamlet_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 2,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "island_small_01"
+    ]
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_02"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_deciduous_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": [
+     "forest_pine_01"
+    ]
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 4,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 4,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 6,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ],
+  [
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "meadow",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "grass",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 2,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   },
+   {
+    "terrain": "sea",
+    "elevation": 0,
+    "riverMask": 0,
+    "coastMask": 0,
+    "objects": []
+   }
+  ]
+ ]
+}
