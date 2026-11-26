@@ -121,17 +121,12 @@ public final class MapSurface extends View {
                 if (!fog.isExplored(col,row)) continue;
                 float px=camera.screenX(col,row,w), py=camera.screenY(col,row,h);
                 DemoMap.Cell cell=demo == null ? null : demo.at(col,row);
-                if (cell == null) {
-                    int kind=world.terrain(col,row);
-                    drawGround(canvas,px,py,kind);
-                } else {
-                    String base = "sea".equals(cell.terrain)
-                        ? ((col+row)%3==0 ? "water_sea_02":"water_sea_01")
-                        : "mountain".equals(cell.terrain) ? "ground_earth_01"
-                        : "meadow".equals(cell.terrain) ? "ground_meadow_01"
-                        : (col*7+row*11)%9==0 ? "ground_grass_02":"ground_grass_01";
-                    if (!drawSprite(canvas,base,px,py)) drawDiamond(canvas,px,py,0xFFADC18C);
-                }
+                // The same PNG tiles render the entire 512x512 world, not
+                // only the 32x32 hand-authored demo. No procedural grid.
+                int kind=terrainAt(col,row);
+                String base=baseTile(col,row,kind,cell);
+                if (!drawSprite(canvas,base,px,py))
+                    drawDiamond(canvas,px,py,kind==WorldMap.SEA?0xFF376F93:0xFFADC18C);
             }
         }
 
@@ -139,35 +134,39 @@ public final class MapSurface extends View {
         for(int sum=minX+minY;sum<=maxX+maxY;sum++) {
             for(int row=Math.max(minY,sum-maxX);row<=Math.min(maxY,sum-minX);row++) {
                 int col=sum-row;
-                if (!fog.isExplored(col,row) || demo==null) continue;
-                DemoMap.Cell cell=demo.at(col,row);
-                if (cell==null) continue;
+                if (!fog.isExplored(col,row)) continue;
+                DemoMap.Cell cell=demo==null?null:demo.at(col,row);
+                int kind=terrainAt(col,row);
                 float px=camera.screenX(col,row,w),py=camera.screenY(col,row,h);
-                if ("mountain".equals(cell.terrain)) {
+                if (isMountainKind(kind)) {
                     if (!isMountain(col,row-1)) drawSprite(canvas,"slope_n",px,py);
                     if (!isMountain(col+1,row)) drawSprite(canvas,"slope_e",px,py);
                     if (!isMountain(col,row+1)) drawSprite(canvas,"slope_s",px,py);
                     if (!isMountain(col-1,row)) drawSprite(canvas,"slope_w",px,py);
                 }
-                if (cell.coastMask>0 && cell.coastMask<=15)
-                    drawSprite(canvas,maskId("coast",cell.coastMask),px,py);
-                // Diagonal shore corners are independent of N/E/S/W edge mask.
-                if (!"sea".equals(cell.terrain) && cell.coastMask>0) {
-                    if (demo.sea(col+1,row-1) && !demo.sea(col,row-1) && !demo.sea(col+1,row))
-                        drawSprite(canvas,"coast_corner_ne",px,py);
-                    if (demo.sea(col-1,row-1) && !demo.sea(col,row-1) && !demo.sea(col-1,row))
-                        drawSprite(canvas,"coast_corner_nw",px,py);
-                    if (demo.sea(col+1,row+1) && !demo.sea(col,row+1) && !demo.sea(col+1,row))
-                        drawSprite(canvas,"coast_corner_se",px,py);
-                    if (demo.sea(col-1,row+1) && !demo.sea(col,row+1) && !demo.sea(col-1,row))
-                        drawSprite(canvas,"coast_corner_sw",px,py);
+                if (kind!=WorldMap.SEA) {
+                    int coast=neighborMask(col,row,WorldMap.SEA);
+                    if (coast!=0) {
+                        drawSprite(canvas,maskId("coast",coast),px,py);
+                        if (isSea(col+1,row-1) && !isSea(col,row-1) && !isSea(col+1,row))
+                            drawSprite(canvas,"coast_corner_ne",px,py);
+                        if (isSea(col-1,row-1) && !isSea(col,row-1) && !isSea(col-1,row))
+                            drawSprite(canvas,"coast_corner_nw",px,py);
+                        if (isSea(col+1,row+1) && !isSea(col,row+1) && !isSea(col+1,row))
+                            drawSprite(canvas,"coast_corner_se",px,py);
+                        if (isSea(col-1,row+1) && !isSea(col,row+1) && !isSea(col-1,row))
+                            drawSprite(canvas,"coast_corner_sw",px,py);
+                    }
                 }
-                if (cell.riverMask>0 && cell.riverMask<=15) {
-                    String id = col==DemoMap.ORIGIN_COL+5 && row==DemoMap.ORIGIN_ROW+3
+                if (cell!=null && cell.riverMask>0 && cell.riverMask<=15) {
+                    String id=col==DemoMap.ORIGIN_COL+5 && row==DemoMap.ORIGIN_ROW+3
                             ? "river_source"
                             : col==DemoMap.ORIGIN_COL+24 && row==DemoMap.ORIGIN_ROW+20
                             ? "river_estuary" : maskId("river",cell.riverMask);
                     drawSprite(canvas,id,px,py);
+                } else if (cell==null && kind==WorldMap.RIVER) {
+                    int river=neighborMask(col,row,WorldMap.RIVER);
+                    if (river!=0) drawSprite(canvas,maskId("river",river),px,py);
                 }
             }
         }
@@ -180,15 +179,10 @@ public final class MapSurface extends View {
                 if (!fog.isExplored(col,row)) continue;
                 DemoMap.Cell cell=demo==null?null:demo.at(col,row);
                 if (cell==null) {
-                    float px=camera.screenX(col,row,w),py=camera.screenY(col,row,h);
-                    drawFeature(canvas,px,py,world.terrain(col,row));
-                } else for (String id:cell.objects) {
-                    MapAssetCatalog.Entry e=art==null?null:art.entries().get(id);
-                    if (e==null) continue;
-                    // sortFootY is a pixel position in sprite space; offset by anchor.
-                    float depth=camera.screenY(col,row,h)+(e.sortFootY-e.anchorY)*IsoCamera.ZOOM;
-                    scenery.add(new Sprite(col,row,id,depth));
-                }
+                    String id=worldObject(col,row,world.terrain(col,row));
+                    if (id!=null) addScenery(scenery,col,row,id,h);
+                } else for (String id:cell.objects)
+                    addScenery(scenery,col,row,id,h);
             }
         }
         Collections.sort(scenery,new Comparator<Sprite>() {
@@ -217,9 +211,63 @@ public final class MapSurface extends View {
     private static String maskId(String type,int bits) {
         return String.format(java.util.Locale.ROOT,"%s_mask_%02d",type,bits);
     }
+    /** A shared terrain source allows artistic tiles to cross demo boundaries. */
+    private int terrainAt(int col,int row) {
+        DemoMap.Cell cell=demo==null?null:demo.at(col,row);
+        if (cell==null) return world.terrain(col,row);
+        if ("sea".equals(cell.terrain)) return WorldMap.SEA;
+        if ("mountain".equals(cell.terrain)) return WorldMap.MOUNTAIN;
+        if (cell.riverMask>0) return WorldMap.RIVER;
+        return WorldMap.GRASS;
+    }
+    private static boolean isMountainKind(int kind) {
+        return kind==WorldMap.MOUNTAIN || kind==WorldMap.MINE || kind==WorldMap.CAVE;
+    }
     private boolean isMountain(int col,int row) {
-        DemoMap.Cell c=demo==null?null:demo.at(col,row);
-        return c!=null && "mountain".equals(c.terrain);
+        return world.inside(col,row) && isMountainKind(terrainAt(col,row));
+    }
+    private boolean isSea(int col,int row) {
+        return world.inside(col,row) && terrainAt(col,row)==WorldMap.SEA;
+    }
+    private int neighborMask(int col,int row,int kind) {
+        int mask=0;
+        if (world.inside(col,row-1) && terrainAt(col,row-1)==kind) mask|=1;
+        if (world.inside(col+1,row) && terrainAt(col+1,row)==kind) mask|=2;
+        if (world.inside(col,row+1) && terrainAt(col,row+1)==kind) mask|=4;
+        if (world.inside(col-1,row) && terrainAt(col-1,row)==kind) mask|=8;
+        return mask;
+    }
+    private String baseTile(int col,int row,int kind,DemoMap.Cell cell) {
+        if (kind==WorldMap.SEA) return ((col+row)%3==0)?"water_sea_02":"water_sea_01";
+        if (isMountainKind(kind)) return "ground_earth_01";
+        if (kind==WorldMap.QUARRY) return "ground_sand_01";
+        if (cell!=null && "meadow".equals(cell.terrain)) return "ground_meadow_01";
+        int noise=(col*31+row*17+col*row*3)&0x7fffffff;
+        if (kind==WorldMap.CONIFER || kind==WorldMap.DECIDUOUS)
+            return noise%5==0?"ground_meadow_01":"ground_grass_01";
+        if (kind==WorldMap.RIVER) return "ground_grass_01";
+        return noise%11==0?"ground_grass_02":
+               noise%17==0?"ground_grass_03":"ground_grass_01";
+    }
+    private String worldObject(int col,int row,int kind) {
+        int n=(col*73+row*131+col*row)&0x7fffffff;
+        switch(kind) {
+            case WorldMap.MOUNTAIN:
+                return n%7==0?"mountain_02":"mountain_01";
+            case WorldMap.MINE:return "mine_mountain_small";
+            case WorldMap.CAVE:return "cave_entrance_small";
+            case WorldMap.CONIFER:return n%2==0?"forest_pine_01":"forest_pine_02";
+            case WorldMap.DECIDUOUS:return n%2==0?"forest_deciduous_01":"forest_deciduous_02";
+            case WorldMap.QUARRY:return "quarry_plain_01";
+            case WorldMap.SETTLEMENT:return "settlement_hamlet_01";
+            default:return null;
+        }
+    }
+    private void addScenery(ArrayList<Sprite> scenery,int col,int row,String id,int h) {
+        MapAssetCatalog.Entry e=art==null?null:art.entries().get(id);
+        if(e==null) return;
+        float depth=camera.screenY(col,row,h)+(e.sortFootY-e.anchorY)*IsoCamera.ZOOM;
+        scenery.add(new Sprite(col,row,id,depth));
     }
     private boolean drawSprite(Canvas canvas,String id,float x,float y) {
         if(art==null || failedAssets.contains(id)) return false;
@@ -257,59 +305,6 @@ public final class MapSurface extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(color);
         canvas.drawPath(diamond,paint);
-    }
-    private void drawGround(Canvas canvas,float x,float y,int kind) {
-        int color;
-        switch(kind){
-            case WorldMap.RIVER: color=0xFF5592A7;break;
-            case WorldMap.SEA: color=0xFF376F93;break;
-            case WorldMap.MOUNTAIN:case WorldMap.MINE:case WorldMap.CAVE:color=0xFF989788;break;
-            case WorldMap.CONIFER:color=0xFF7BA47A;break;
-            case WorldMap.DECIDUOUS:color=0xFF9EB57C;break;
-            default:color=0xFFADC18C;
-        }
-        drawDiamond(canvas,x,y,color);
-    }
-    private void drawFeature(Canvas canvas,float x,float y,int kind) {
-        float s=IsoCamera.ZOOM;
-        paint.setStyle(Paint.Style.FILL);
-        if(kind==WorldMap.MOUNTAIN||kind==WorldMap.MINE||kind==WorldMap.CAVE){
-            Path peak=new Path();
-            peak.moveTo(x-37*s,y+6*s);
-            peak.lineTo(x-3*s,y-48*s);
-            peak.lineTo(x+34*s,y+6*s);
-            peak.close();
-            paint.setColor(0xFF5C6463);canvas.drawPath(peak,paint);
-            if(kind==WorldMap.MINE||kind==WorldMap.CAVE){
-                paint.setColor(0xFF292F30);
-                canvas.drawOval(x-11*s,y-13*s,x+12*s,y+7*s,paint);
-                if(kind==WorldMap.MINE){
-                    paint.setColor(0xFFBB8A4F);
-                    canvas.drawRect(x-13*s,y-15*s,x-10*s,y+7*s,paint);
-                    canvas.drawRect(x+11*s,y-15*s,x+14*s,y+7*s,paint);
-                }
-            }
-        } else if(kind==WorldMap.CONIFER||kind==WorldMap.DECIDUOUS){
-            paint.setColor(0xFF3A6347);
-            if(kind==WorldMap.CONIFER){
-                Path tree=new Path();tree.moveTo(x,y-39*s);
-                tree.lineTo(x-19*s,y+3*s);tree.lineTo(x+19*s,y+3*s);tree.close();
-                canvas.drawPath(tree,paint);
-            }else{
-                canvas.drawCircle(x,y-14*s,19*s,paint);
-            }
-        }else if(kind==WorldMap.QUARRY){
-            paint.setColor(0xFF8B826A);
-            canvas.drawOval(x-25*s,y-10*s,x+25*s,y+10*s,paint);
-            paint.setColor(0xFF66665F);
-            canvas.drawOval(x-15*s,y-6*s,x+15*s,y+4*s,paint);
-        }else if(kind==WorldMap.SETTLEMENT){
-            paint.setColor(0xFF926543);
-            canvas.drawRect(x-17*s,y-24*s,x+17*s,y+5*s,paint);
-            Path roof=new Path();roof.moveTo(x-24*s,y-24*s);
-            roof.lineTo(x,y-42*s);roof.lineTo(x+24*s,y-24*s);roof.close();
-            paint.setColor(0xFFAE5B40);canvas.drawPath(roof,paint);
-        }
     }
     @Override public boolean onTouchEvent(MotionEvent event) {
         switch(event.getActionMasked()){
