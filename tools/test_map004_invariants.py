@@ -25,7 +25,7 @@ class Map004Invariants(unittest.TestCase):
         self.assertIn("TILE_WIDTH = 128f, TILE_HEIGHT = 64f, ZOOM = 1.2f", self.camera)
         self.assertIn("public static final int SIZE = 512", (SRC / "WorldMap.java").read_text())
         self.assertIn("applicationId 'com.kopanka.maptest.stable'", self.gradle)
-        self.assertIn("versionCode 15", self.gradle)
+        self.assertIn("versionCode 16", self.gradle)
 
     def test_demo_river_is_one_continuous_connected_path(self):
         cells = self.data["cells"]
@@ -73,6 +73,23 @@ class Map004Invariants(unittest.TestCase):
         # Terrain and scenery passes must check the exploration state first.
         self.assertGreaterEqual(src.count("if (!fog.isExplored(col,row)) continue;"), 3)
         self.assertIn("explored_v1", self.fog)
+
+    def test_procedural_riverbank_height_grading_and_cache(self):
+        elevation = (SRC / "ElevationMap.java").read_text(encoding="utf-8")
+        self.assertIn("private final byte[] heightCache", elevation)
+        self.assertIn("if (heightCache[index] != 0)", elevation)
+        self.assertIn("heightCache[index] = (byte) (h + 1)", elevation)
+        self.assertIn("if (nearestWater < 4) h = Math.min(h, 1 + nearestWater)", elevation)
+        self.assertIn('DemoMap.Cell near = demo == null ? null : demo.at(nx, ny)', elevation)
+        # The original, artist-authored demo heights must be returned unchanged.
+        self.assertLess(elevation.index("if (c != null)"),
+                        elevation.index("if (nearestWater < 4)"))
+
+    def test_small_grass_banks_are_not_drawn_as_dark_cliffs(self):
+        src = self.renderer
+        self.assertIn("boolean grassBank = !isMountainKind(terrainAt(col,row))", src)
+        self.assertIn("east == 1 && grassBank", src)
+        self.assertIn("south == 1 && grassBank", src)
 
     def test_legacy_segment_seams_and_slope_bars_are_not_drawn(self):
         src = self.renderer
