@@ -49,11 +49,11 @@ public final class MapSurface extends View {
     }
 
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    // Approved 2026-11-27: opaque graphite fog (#171B1D) for every
+    // Approved 2026-11-27: opaque graphite fog (#292D30) for every
     // unexplored map cell, including the out-of-world background.
     // Never read undiscovered terrain for fog.
-    private static final int OUTSIDE_WORLD_COLOR = 0xFF171B1D;
-    private static final int UNEXPLORED_FOG_COLOR = 0xFF171B1D;
+    private static final int OUTSIDE_WORLD_COLOR = 0xFF292D30;
+    private static final int UNEXPLORED_FOG_COLOR = 0xFF292D30;
     private final Path diamond = new Path();
     private float downX, downY, lastX, lastY;
     private boolean moving;
