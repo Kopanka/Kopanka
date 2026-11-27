@@ -32,10 +32,11 @@ public final class ElevationMap {
     }
 
     private static float valueNoise(int x, int y, int spacing) {
-        int ix = Math.floorDiv(x, spacing);
-        int iy = Math.floorDiv(y, spacing);
-        float u = smooth(Math.floorMod(x, spacing) / (float) spacing);
-        float v = smooth(Math.floorMod(y, spacing) / (float) spacing);
+        // Math.floorDiv/floorMod are unavailable on some minSdk=23 devices.
+        int ix = (int) Math.floor(x / (double) spacing);
+        int iy = (int) Math.floor(y / (double) spacing);
+        float u = smooth((x - ix * spacing) / (float) spacing);
+        float v = smooth((y - iy * spacing) / (float) spacing);
         float n00 = hash(ix, iy), n10 = hash(ix + 1, iy);
         float n01 = hash(ix, iy + 1), n11 = hash(ix + 1, iy + 1);
         float a = n00 + (n10 - n00) * u;
