@@ -47,8 +47,6 @@ jobs:
           PY
       - name: Validate every SVG PNG anchor hash and generate tile join diagnostic
         run: python docs/art/map-004-preview/validate_and_compose.py
-      - name: Assemble actual 32x32 authored scene using reusable art sprites
-        run: python docs/art/map-004-preview/render_authored_scene.py
       - name: Check authored source geography unchanged
         run: |
           python - <<'PY'
@@ -95,6 +93,8 @@ jobs:
                   assert im.getchannel('A').getextrema()==(0,0)
           print('PASS 16 coast masks; matching Android bit order, geometry, PNG and SHA256')
           PY
+      - name: Assemble actual 32x32 authored scene using reusable art sprites
+        run: python docs/art/map-004-preview/render_authored_scene.py
       - name: Upload test-only design ZIP and preview sheet
         uses: actions/upload-artifact@v4
         with:
