@@ -7,6 +7,8 @@ on:
       - 'tools/validate_map_assets.py'
       - 'tools/test_validate_map_assets.py'
       - 'tools/test_map004_invariants.py'
+      - 'tools/stage_map005_macros.py'
+      - 'tools/test_map005_staging.py'
       - '.github/workflows/prototype-android.yml'
   pull_request:
     paths:
@@ -14,6 +16,8 @@ on:
       - 'tools/validate_map_assets.py'
       - 'tools/test_validate_map_assets.py'
       - 'tools/test_map004_invariants.py'
+      - 'tools/stage_map005_macros.py'
+      - 'tools/test_map005_staging.py'
       - '.github/workflows/prototype-android.yml'
   workflow_dispatch:
 
@@ -52,6 +56,10 @@ jobs:
             python3 -m pip install --disable-pip-version-check 'Pillow>=10,<13'
             python3 docs/art/map-003-v1.4/tools/validate_package.py
           fi
+      - name: Validate MAP-005 staged PNG intake and reject premature production approval
+        run: |
+          python3 -m pip install --disable-pip-version-check 'Pillow>=10,<13'
+          python3 tools/test_map005_staging.py
       - name: Install Android platform
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: Prepare pinned TEST-ONLY debug signing keystore
