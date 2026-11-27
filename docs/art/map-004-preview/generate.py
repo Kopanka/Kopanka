@@ -111,6 +111,35 @@ for direction in ("e","s"):
              "coast", (64,32),32,direction.upper(),
              "Prototype water/land transition; 16 masks and corner variants still required")
 
+
+# Irregular NATURAL cave, separated from mine and human-built passages.
+# Tall RGBA sprite: footprint anchor (64,94), terrain sort by foot at y=94.
+cave = '''
+<ellipse cx="66" cy="94" rx="53" ry="12" fill="#46604c" opacity=".18"/>
+<path d="M10,89 Q6,78 21,58 L29,36 Q38,15 65,13 Q93,14 110,38 L118,70 Q126,83 113,93
+ L90,96 L36,97 Z" fill="#888f87"/>
+<path d="M17,82 L28,53 L37,33 L48,23 L47,46 L31,70 Z" fill="#adb1a3"/>
+<path d="M73,18 L94,28 L111,59 L116,84 L98,76 L91,52 Z" fill="#646f6e"/>
+<path d="M31,83 Q31,66 40,54 Q50,42 66,44 Q85,44 97,62 Q104,77 98,94
+ L36,94 Q31,91 31,83 Z" fill="#3c4442"/>
+<path d="M40,90 Q35,70 49,58 Q62,46 77,54 Q94,61 93,86 L91,93 L42,93 Z" fill="#161e22"/>
+<path d="M41,91 Q43,79 48,75 L49,94 L41,94 Z" fill="#4b534c" opacity=".65"/>
+<path d="M35,53 Q37,35 48,27 L45,47 L55,44 Q68,35 79,43 L88,49
+ L97,59 L87,55 Q72,46 63,48 Q45,50 37,67 Z" fill="#c1bfae"/>
+<path d="M20,84 L32,67 L36,88 L30,96 L16,95 Z" fill="#7e867b"/>
+<path d="M96,87 L103,71 L112,88 L107,97 L94,95 Z" fill="#97978b"/>
+<path d="M10,93 L22,84 L33,96 L21,101 Z" fill="#929b8e"/>
+<path d="M108,91 L119,88 L124,98 L111,100 Z" fill="#6b7772"/>
+<path d="M27,35 Q33,22 41,20 M92,28 L105,45 M21,79 L28,63"
+ stroke="#d5d2c2" stroke-opacity=".55" stroke-width="2" fill="none"/>
+<path d="M13,91 Q22,88 31,91 M90,96 Q109,95 120,98 M46,29 L51,23"
+ stroke="#58865a" stroke-width="3" fill="none" opacity=".72"/>
+<ellipse cx="30" cy="95" rx="11" ry="3" fill="#5a7f56"/>
+<ellipse cx="108" cy="98" rx="11" ry="2.5" fill="#6d8965"/>
+'''
+save("natural_cave_01",svg0(128,112,cave),"scenery",(64,94),94,"",
+     "Unframed irregular dark cave entrance among stones and moss; distinct from an engineered mine")
+
 manifest = {"schemaVersion":1, "assetPack":"KOPANKA-MAP-004-ART-PREVIEW",
     "version":"0.1.0-preview",
     "geometry":{"worldCols":512,"worldRows":512,"tileWidthPx":128,
