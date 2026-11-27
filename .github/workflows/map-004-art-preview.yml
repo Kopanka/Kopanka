@@ -36,14 +36,14 @@ jobs:
           assert obj['geometry']['tileAnchor']==[64,32]
           assert obj['geometry']['cameraZoom']==1.2
           assert obj['geometry']['worldCols']==512
-          assert len(obj['assets'])==26
+          assert len(obj['assets'])==27
           for a in obj['assets']:
               im=Image.open(root/a['path'])
               assert im.size==(a['widthPx'],a['heightPx'])
               assert im.mode=='RGBA'
               assert im.getchannel('A').getextrema()[0]==0
               assert (root/a['editableSource']).exists()
-          print('PASS 26 sprite candidates + geometry + alpha + editable sources')
+          print('PASS 27 sprite candidates + geometry + alpha + editable sources')
           PY
       - name: Validate every SVG PNG anchor hash and generate tile join diagnostic
         run: python docs/art/map-004-preview/validate_and_compose.py
