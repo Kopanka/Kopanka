@@ -40,10 +40,10 @@ def check():
         assert hashlib.sha256(p.read_bytes()).hexdigest()==a["sha256"]
         assert a["license"].strip()
         counts[a["layer"]]=counts.get(a["layer"],0)+1
-    assert len(ASSETS)==26, f"unexpected count: {len(ASSETS)}"
+    assert len(ASSETS)==27, f"unexpected count: {len(ASSETS)}"
     required=["hill_n_01","hill_e_01","hill_s_01","hill_w_01",
               "cliff_e_h1_01","cliff_s_h1_01","shore_e_01","shore_s_01",
-              "ridge_peak_01","ridge_peak_06"]
+              "ridge_peak_01","ridge_peak_06","natural_cave_01"]
     assert all(x in IDS for x in required)
     return counts
 
@@ -102,6 +102,7 @@ if __name__=="__main__":
         "cliff": sorted(k for k in IDS if k.startswith("cliff_")),
         "shore": sorted(k for k in IDS if k.startswith("shore_")),
         "mountains": sorted(k for k in IDS if k.startswith("ridge_peak_")),
+        "naturalCave": sorted(k for k in IDS if k.startswith("natural_cave_")),
     }
     report={
         "assetCount":len(ASSETS),
@@ -118,5 +119,5 @@ if __name__=="__main__":
     }
     (ROOT/"validation_report.json").write_text(
         json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
-    print("PASS: 26 RGBA, source SVG, anchor, geometry, hash and alpha checks")
+    print("PASS: 27 RGBA, source SVG, anchor, geometry, hash and alpha checks")
     print("Preview generated:",ROOT/"tile_join_diagnostic.png")
