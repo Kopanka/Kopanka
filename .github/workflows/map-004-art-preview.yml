@@ -47,6 +47,27 @@ jobs:
           PY
       - name: Validate every SVG PNG anchor hash and generate tile join diagnostic
         run: python docs/art/map-004-preview/validate_and_compose.py
+      - name: Assemble actual 32x32 authored scene using reusable art sprites
+        run: python docs/art/map-004-preview/render_authored_scene.py
+      - name: Check authored source geography unchanged
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('docs/art/map-004-preview')
+          j=json.loads((p/'demo_32x32.json').read_text())
+          assert (j['width'],j['height'])==(32,32)
+          assert len(j['riverPath'])==37
+          assert j['riverPath'][0]=={'col':5,'row':3}
+          assert j['riverPath'][-1]=={'col':24,'row':20}
+          report=json.loads((p/'scene_32x32_report.json').read_text())
+          assert report['authoredRiverCells']==37
+          assert report['objectsById']['cave_entrance_small']==1
+          assert report['objectsById']['mine_mountain_small']==1
+          assert report['objectsById']['quarry_plain_01']==1
+          assert report['objectsById']['settlement_hamlet_01']==1
+          print('PASS original authored geography, river and landmarks preserved')
+          PY
       - name: Upload test-only design ZIP and preview sheet
         uses: actions/upload-artifact@v4
         with:
@@ -57,5 +78,7 @@ jobs:
             docs/art/map-004-preview/manifest.json
             docs/art/map-004-preview/tile_join_diagnostic.png
             docs/art/map-004-preview/validation_report.json
+            docs/art/map-004-preview/scene_32x32_preview.jpg
+            docs/art/map-004-preview/scene_32x32_report.json
           if-no-files-found: error
           retention-days: 30
