@@ -82,6 +82,29 @@ for level in range(63):
                           fill=(210,205,168,rr.randrange(45,115)) if k=="mountain"
                           else (71,116,72,rr.randrange(35,80)))
 
+# Technical MAP-005 shoreline experiment: zero-elevation land tiles only.
+# Four-way adjacency corresponds exactly to Android MapSurface.neighborMask.
+# Height-aware cliff/shore sprites must be designed separately, and these
+# flat overlays are not the final approved painterly terrain.
+shore_cnt=0
+for row in range(32):
+    for col in range(32):
+        cell=at(col,row)
+        if cell["terrain"]=="sea" or cell["elevation"]!=0:
+            continue
+        mask=0
+        for dx,dy,bit in ((0,-1,1),(1,0,2),(0,1,4),(-1,0,8)):
+            neighbor=at(col+dx,row+dy)
+            if neighbor is not None and neighbor["terrain"]=="sea":
+                mask|=bit
+        if not mask: continue
+        shore=Image.open(ROOT/"shore_png"/f"coast_mask_{mask:02d}.png").convert("RGBA")
+        x,y=point(col,row)
+        px,py=round(x-64),round(y-32)
+        if 0<=px<=W-128 and 0<=py<=H-64:
+            C.alpha_composite(shore,(px,py))
+            shore_cnt+=1
+
 # This is the original 37-cell author route, not a newly invented waterway.
 path=[(v["col"],v["row"]) for v in DATA["riverPath"]]
 assert path[0]==(5,3) and path[-1]==(24,20) and len(path)==37
@@ -203,6 +226,8 @@ preview.save(ROOT/"scene_32x32_preview.jpg",quality=90,optimize=True)
 report={"status":"TECHNICAL COMPOSITE, NOT FINAL ART",
         "width":32,"height":32,
         "authoredRiverCells":len(path),
+        "shoreMaskCells":shore_cnt,
+        "shoreMaskSchema":"N=1,E=2,S=4,W=8; demo flat land only",
         "objectsById":counts,
         "source":"Android PR #10 map_32x32.json exact copy",
         "components":"candidate PNG mountains/cave + procedural preview trees/river/cliffs",
