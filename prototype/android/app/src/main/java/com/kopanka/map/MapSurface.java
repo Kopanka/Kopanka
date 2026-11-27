@@ -130,7 +130,7 @@ public final class MapSurface extends View {
                 float px=camera.screenX(col,row,w);
                 float py=camera.screenY(col,row,h);
                 if (!fog.isExplored(col,row)) {
-                    drawDiamond(canvas,px,py,UNEXPLORED_FOG_COLOR);
+                    drawFogDiamond(canvas,px,py);
                 } else {
                     int kind=terrainAt(col,row);
                     int underlay=kind==WorldMap.SEA || kind==WorldMap.RIVER
@@ -188,7 +188,11 @@ public final class MapSurface extends View {
                     if (demo==null || demo.at(col,row)==null) {
                         coast|=neighborMask(col,row,WorldMap.RIVER);
                     }
-                    if (coast!=0) {
+                    // The current shore sprites include bright cyan lines.
+                    // They do not fit vertical cliffs: on elevated banks they
+                    // appeared as parallel stripes floating above the river.
+                    // Wait for elevation-specific coast assets before restoring.
+                    if (coast!=0 && elevation.at(col,row)==0) {
                         drawSprite(canvas,maskId("coast",coast),px,py);
                         if (isSea(col+1,row-1) && !isSea(col,row-1) && !isSea(col+1,row))
                             drawSprite(canvas,"coast_corner_ne",px,py);
@@ -247,7 +251,7 @@ public final class MapSurface extends View {
                 int col=sum-row;
                 if (fog.isExplored(col,row)) continue;
                 float px=camera.screenX(col,row,w),py=camera.screenY(col,row,h);
-                drawDiamond(canvas,px,py,UNEXPLORED_FOG_COLOR);
+                drawFogDiamond(canvas,px,py);
                 // Single opaque graphite fog, with no PNG overlay or alpha.
             }
         }
@@ -385,6 +389,29 @@ public final class MapSurface extends View {
         canvas.drawBitmap(bmp,null,spriteBounds,paint);
         return true;
     }
+    /**
+     * Fog must be opaque and seam-free even at fractional 1.2x zoom.
+     * The normal anti-aliased diamonds left tiny translucent hairlines
+     * between neighbors, exposing the dark background/underlying grid.
+     * Slightly overdraw each cell using non-AA fill and restore paint
+     * settings before other passes.
+     */
+    private void drawFogDiamond(Canvas canvas,float x,float y) {
+        float hw=IsoCamera.TILE_WIDTH*IsoCamera.ZOOM/2f+0.8f;
+        float hh=IsoCamera.TILE_HEIGHT*IsoCamera.ZOOM/2f+0.8f;
+        diamond.reset();
+        diamond.moveTo(x,y-hh);
+        diamond.lineTo(x+hw,y);
+        diamond.lineTo(x,y+hh);
+        diamond.lineTo(x-hw,y);
+        diamond.close();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(UNEXPLORED_FOG_COLOR);
+        paint.setAntiAlias(false);
+        canvas.drawPath(diamond,paint);
+        paint.setAntiAlias(true);
+    }
+
     private void drawDiamond(Canvas canvas, float x, float y, int color) {
         float hw=IsoCamera.TILE_WIDTH*IsoCamera.ZOOM/2f;
         float hh=IsoCamera.TILE_HEIGHT*IsoCamera.ZOOM/2f;
