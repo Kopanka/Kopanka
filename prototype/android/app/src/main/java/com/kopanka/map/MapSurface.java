@@ -116,6 +116,31 @@ public final class MapSurface extends View {
         maxX=Math.min(WorldMap.SIZE-1,maxX); maxY=Math.min(WorldMap.SIZE-1,maxY);
         if (minX>maxX || minY>maxY) return;
 
+        // MAP-004 fog + elevation safety underlay.
+        // Raised tile tops leave portions of the original flat diamond
+        // unoccupied, and opaque fog is still projected on that original
+        // plane. Without the complete base layer those pixels show the
+        // OUTSIDE_WORLD_COLOR (near-black), creating black seams around
+        // purple fog and terraces. Cover EVERY in-world cell before any
+        // elevated layer, using only exploration state for hidden cells.
+        // This never reads or discloses unexplored geography.
+        for (int sum=minX+minY;sum<=maxX+maxY;sum++) {
+            for (int row=Math.max(minY,sum-maxX);row<=Math.min(maxY,sum-minX);row++) {
+                int col=sum-row;
+                float px=camera.screenX(col,row,w);
+                float py=camera.screenY(col,row,h);
+                if (!fog.isExplored(col,row)) {
+                    drawDiamond(canvas,px,py,UNEXPLORED_FOG_COLOR);
+                } else {
+                    int kind=terrainAt(col,row);
+                    int underlay=kind==WorldMap.SEA || kind==WorldMap.RIVER
+                            ? 0xFF187B9A
+                            : isMountainKind(kind) ? 0xFF827E6A : 0xFF91B366;
+                    drawDiamond(canvas,px,py,underlay);
+                }
+            }
+        }
+
         // Pass 1: ground + sea only for explored cells; never inspect hidden terrain.
         for(int sum=minX+minY;sum<=maxX+maxY;sum++) {
             for(int row=Math.max(minY,sum-maxX);row<=Math.min(maxY,sum-minX);row++) {
