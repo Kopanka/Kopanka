@@ -45,6 +45,8 @@ jobs:
               assert (root/a['editableSource']).exists()
           print('PASS 26 sprite candidates + geometry + alpha + editable sources')
           PY
+      - name: Validate every SVG PNG anchor hash and generate tile join diagnostic
+        run: python docs/art/map-004-preview/validate_and_compose.py
       - name: Upload test-only design ZIP and preview sheet
         uses: actions/upload-artifact@v4
         with:
@@ -53,5 +55,7 @@ jobs:
             docs/art/map-004-preview/MAP-004-art-preview-v0.1.zip
             docs/art/map-004-preview/contact_sheet.png
             docs/art/map-004-preview/manifest.json
+            docs/art/map-004-preview/tile_join_diagnostic.png
+            docs/art/map-004-preview/validation_report.json
           if-no-files-found: error
           retention-days: 30
