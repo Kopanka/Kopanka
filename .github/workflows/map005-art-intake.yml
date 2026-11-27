@@ -1,0 +1,42 @@
+name: MAP-005 approved art intake validation
+
+on:
+  push:
+    branches:
+      - art/map-004-height-aware-preview
+    paths:
+      - 'docs/art/map-005-intake/**'
+      - 'tools/validate_map005_art_zip.py'
+      - '.github/workflows/map005-art-intake.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-approved-style-macros:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check Pillow
+      - name: Validate candidate archive when delivered
+        shell: bash
+        run: |
+          set -euo pipefail
+          ART=docs/art/map-005-intake/KOPANKA_MAP005_art_handoff.zip
+          if [ ! -f "$ART" ]; then
+            echo 'Pending: the 8 approved style macro PNG binaries have not been uploaded to the repository.'
+            echo 'No fake acceptance: source assets must be transferred before this CI can validate.'
+            exit 0
+          fi
+          python tools/validate_map005_art_zip.py "$ART"
+      - name: Publish input archive to downstream Android work
+        if: hashFiles('docs/art/map-005-intake/KOPANKA_MAP005_art_handoff.zip') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: kopanka-map005-approved-style-macro-source
+          path: docs/art/map-005-intake/KOPANKA_MAP005_art_handoff.zip
+          retention-days: 30
