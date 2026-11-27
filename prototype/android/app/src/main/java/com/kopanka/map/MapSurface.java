@@ -145,7 +145,12 @@ public final class MapSurface extends View {
                     if (!isMountain(col-1,row)) drawSprite(canvas,"slope_w",px,py);
                 }
                 if (kind!=WorldMap.SEA) {
+                    // Coast transitions also border procedural open-water
+                    // river tiles; demo river remains a centerline overlay.
                     int coast=neighborMask(col,row,WorldMap.SEA);
+                    if (demo==null || demo.at(col,row)==null) {
+                        coast|=neighborMask(col,row,WorldMap.RIVER);
+                    }
                     if (coast!=0) {
                         drawSprite(canvas,maskId("coast",coast),px,py);
                         if (isSea(col+1,row-1) && !isSea(col,row-1) && !isSea(col+1,row))
@@ -164,10 +169,13 @@ public final class MapSurface extends View {
                             : col==DemoMap.ORIGIN_COL+24 && row==DemoMap.ORIGIN_ROW+20
                             ? "river_estuary" : maskId("river",cell.riverMask);
                     drawSprite(canvas,id,px,py);
-                } else if (cell==null && kind==WorldMap.RIVER) {
-                    int river=neighborMask(col,row,WorldMap.RIVER);
-                    if (river!=0) drawSprite(canvas,maskId("river",river),px,py);
                 }
+                // Procedural rivers are multi-cell-wide water bands, not
+                // one-tile centerlines. Narrow 1-tile river-mask overlays
+                // on every water cell created a blue lattice with grass
+                // holes. Their water is now rendered in pass 1 as a
+                // continuous water surface; keep river masks for the
+                // hand-authored 32x32 demo centerline only.
             }
         }
 
@@ -238,14 +246,16 @@ public final class MapSurface extends View {
         return mask;
     }
     private String baseTile(int col,int row,int kind,DemoMap.Cell cell) {
-        if (kind==WorldMap.SEA) return ((col+row)%3==0)?"water_sea_02":"water_sea_01";
+        // Multi-tile procedural channels need solid water, not line overlays.
+        if (kind==WorldMap.SEA || (cell==null && kind==WorldMap.RIVER))
+            return ((col+row)%3==0)?"water_sea_02":"water_sea_01";
         if (isMountainKind(kind)) return "ground_earth_01";
         if (kind==WorldMap.QUARRY) return "ground_sand_01";
         if (cell!=null && "meadow".equals(cell.terrain)) return "ground_meadow_01";
         int noise=(col*31+row*17+col*row*3)&0x7fffffff;
         if (kind==WorldMap.CONIFER || kind==WorldMap.DECIDUOUS)
             return noise%5==0?"ground_meadow_01":"ground_grass_01";
-        if (kind==WorldMap.RIVER) return "ground_grass_01";
+
         return noise%11==0?"ground_grass_02":
                noise%17==0?"ground_grass_03":"ground_grass_01";
     }
