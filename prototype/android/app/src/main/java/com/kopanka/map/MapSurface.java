@@ -49,11 +49,11 @@ public final class MapSurface extends View {
     }
 
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    // Approved 2026-11-27: every unexplored map cell is opaque black.
-    // Out-of-world background is black too; explored cells still use
-    // their real terrain. Never read undiscovered terrain for fog.
-    private static final int OUTSIDE_WORLD_COLOR = 0xFF000000;
-    private static final int UNEXPLORED_FOG_COLOR = 0xFF000000;
+    // Approved 2026-11-27: opaque graphite fog (#171B1D) for every
+    // unexplored map cell, including the out-of-world background.
+    // Never read undiscovered terrain for fog.
+    private static final int OUTSIDE_WORLD_COLOR = 0xFF171B1D;
+    private static final int UNEXPLORED_FOG_COLOR = 0xFF171B1D;
     private final Path diamond = new Path();
     private float downX, downY, lastX, lastY;
     private boolean moving;
@@ -241,14 +241,14 @@ public final class MapSurface extends View {
                     camera.screenY(item.col,item.row,h)-elevation.at(item.col,item.row)
                             *ElevationMap.STEP_PX*IsoCamera.ZOOM);
 
-        // Pass 4 ALWAYS last: opaque BLACK hides unexplored terrain and tall sprite overlap.
+        // Pass 4 ALWAYS last: opaque GRAPHITE hides unexplored terrain and tall sprite overlap.
         for(int sum=minX+minY;sum<=maxX+maxY;sum++) {
             for(int row=Math.max(minY,sum-maxX);row<=Math.min(maxY,sum-minX);row++) {
                 int col=sum-row;
                 if (fog.isExplored(col,row)) continue;
                 float px=camera.screenX(col,row,w),py=camera.screenY(col,row,h);
                 drawDiamond(canvas,px,py,UNEXPLORED_FOG_COLOR);
-                // Single opaque black fog, with no PNG overlay or alpha.
+                // Single opaque graphite fog, with no PNG overlay or alpha.
             }
         }
     }
