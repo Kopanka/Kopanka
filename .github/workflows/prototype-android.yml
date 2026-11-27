@@ -6,12 +6,14 @@ on:
       - 'prototype/android/**'
       - 'tools/validate_map_assets.py'
       - 'tools/test_validate_map_assets.py'
+      - 'tools/test_map004_invariants.py'
       - '.github/workflows/prototype-android.yml'
   pull_request:
     paths:
       - 'prototype/android/**'
       - 'tools/validate_map_assets.py'
       - 'tools/test_validate_map_assets.py'
+      - 'tools/test_map004_invariants.py'
       - '.github/workflows/prototype-android.yml'
   workflow_dispatch:
 
@@ -33,6 +35,8 @@ jobs:
           gradle-version: '8.9'
       - name: Test MAP-003 asset manifest validator
         run: python3 tools/test_validate_map_assets.py
+      - name: Validate MAP-004 fog and river rendering invariants
+        run: python3 tools/test_map004_invariants.py
       - name: Validate artist assets when delivered
         shell: bash
         run: |
