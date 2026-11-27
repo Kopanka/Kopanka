@@ -60,6 +60,31 @@ public final class ElevationMap {
         float ridge = (float) Math.pow(1f - Math.abs(broad * 2f - 1f), 1.35);
         float field = 0.58f * ridge + 0.42f * detail;
         int h = 1 + Math.round(field * 4f);
+
+        // Procedural canyon transition: high land must not jump straight
+        // from a level-5 cliff to level-0 water. In a 3-cell river corridor,
+        // clamp the bank to a graded height field (1,2,3), rising inland.
+        // Do NOT modify the authored 32x32 demo elevations.
+        int nearestWater = 4;
+        for (int dy = -3; dy <= 3; dy++) {
+            for (int dx = -3; dx <= 3; dx++) {
+                int radius = Math.max(Math.abs(dx), Math.abs(dy));
+                if (radius >= nearestWater) continue;
+                int nx = col + dx, ny = row + dy;
+                if (!world.inside(nx, ny)) continue;
+                // Respect authored terrain within the demo region, even
+                // when the procedural height field extends near its edge.
+                DemoMap.Cell near = demo == null ? null : demo.at(nx, ny);
+                int nextKind;
+                if (near != null) {
+                    nextKind = "sea".equals(near.terrain) ? WorldMap.SEA
+                            : near.riverMask > 0 ? WorldMap.RIVER : WorldMap.GRASS;
+                } else nextKind = world.terrain(nx, ny);
+                if (nextKind == WorldMap.SEA || nextKind == WorldMap.RIVER)
+                    nearestWater = radius;
+            }
+        }
+        if (nearestWater < 4) h = Math.min(h, 1 + nearestWater);
         return Math.max(1, Math.min(MAX_LEVEL, h));
     }
 }
