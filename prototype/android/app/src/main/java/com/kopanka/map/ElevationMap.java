@@ -14,6 +14,10 @@ public final class ElevationMap {
 
     private final WorldMap world;
     private final DemoMap demo;
+    // 262,144 bytes of lazy terrain heights rather than re-scanning a
+    // seven-by-seven water neighborhood on every Android frame.
+    // 0 = uncached, height is stored as (1 + level) for mountain cells.
+    private final byte[] heightCache = new byte[WorldMap.SIZE * WorldMap.SIZE];
 
     public ElevationMap(WorldMap world, DemoMap demo) {
         this.world = world;
@@ -52,6 +56,8 @@ public final class ElevationMap {
         int kind = world.terrain(col, row);
         if (kind != WorldMap.MOUNTAIN && kind != WorldMap.MINE
                 && kind != WorldMap.CAVE) return 0;
+        int index = row * WorldMap.SIZE + col;
+        if (heightCache[index] != 0) return heightCache[index] - 1;
 
         // A combination of broad mountain ridges and smaller foothills.
         // All cells of a ridge share the same smooth spatial height field.
@@ -85,6 +91,8 @@ public final class ElevationMap {
             }
         }
         if (nearestWater < 4) h = Math.min(h, 1 + nearestWater);
-        return Math.max(1, Math.min(MAX_LEVEL, h));
+        h = Math.max(1, Math.min(MAX_LEVEL, h));
+        heightCache[index] = (byte) (h + 1);
+        return h;
     }
 }
