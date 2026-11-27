@@ -68,6 +68,33 @@ jobs:
           assert report['objectsById']['settlement_hamlet_01']==1
           print('PASS original authored geography, river and landmarks preserved')
           PY
+      - name: Generate and validate all 16 coast adjacency masks
+        run: |
+          python docs/art/map-004-preview/generate_shoreline_masks.py
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          from PIL import Image
+          root=Path('docs/art/map-004-preview')
+          m=json.loads((root/'shoreline_manifest.json').read_text())
+          assert m['geometry']['tileWidthPx']==128
+          assert m['geometry']['tileHeightPx']==64
+          assert m['geometry']['anchor']==[64,32]
+          assert m['geometry']['zoom']==1.2
+          assert len(m['assets'])==16
+          assert [a['adjacencyMask'] for a in m['assets']]==list(range(16))
+          for a in m['assets']:
+              p=root/a['path']
+              im=Image.open(p)
+              assert im.mode=='RGBA' and im.size==(128,64)
+              assert a['anchorX']==64 and a['anchorY']==32
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==a['sha256']
+              if a['adjacencyMask']:
+                  assert im.getchannel('A').getextrema()[1]>0
+              else:
+                  assert im.getchannel('A').getextrema()==(0,0)
+          print('PASS 16 coast masks; matching Android bit order, geometry, PNG and SHA256')
+          PY
       - name: Upload test-only design ZIP and preview sheet
         uses: actions/upload-artifact@v4
         with:
@@ -80,5 +107,8 @@ jobs:
             docs/art/map-004-preview/validation_report.json
             docs/art/map-004-preview/scene_32x32_preview.jpg
             docs/art/map-004-preview/scene_32x32_report.json
+            docs/art/map-004-preview/shoreline_manifest.json
+            docs/art/map-004-preview/shoreline_16_preview.png
+            docs/art/map-004-preview/shore_png/
           if-no-files-found: error
           retention-days: 30
