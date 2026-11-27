@@ -1,0 +1,57 @@
+name: MAP-004 art preview PNG SVG pack
+
+on:
+  push:
+    branches:
+      - art/map-004-height-aware-preview
+    paths:
+      - 'docs/art/map-004-preview/**'
+      - '.github/workflows/map-004-art-preview.yml'
+  workflow_dispatch:
+
+jobs:
+  generate-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image dependencies
+        run: python -m pip install --disable-pip-version-check pillow cairosvg
+      - name: Generate all editable SVG and PNG sprites
+        run: python docs/art/map-004-preview/generate.py
+      - name: Validate images, alpha and metadata
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('docs/art/map-004-preview')
+          obj=json.loads((root/'manifest.json').read_text())
+          assert obj['geometry']['tileWidthPx']==128
+          assert obj['geometry']['tileHeightPx']==64
+          assert obj['geometry']['tileAnchor']==[64,32]
+          assert obj['geometry']['cameraZoom']==1.2
+          assert obj['geometry']['worldCols']==512
+          assert len(obj['assets'])==26
+          for a in obj['assets']:
+              im=Image.open(root/a['path'])
+              assert im.size==(a['widthPx'],a['heightPx'])
+              assert im.mode=='RGBA'
+              assert im.getchannel('A').getextrema()[0]==0
+              assert (root/a['editableSource']).exists()
+          print('PASS 26 sprite candidates + geometry + alpha + editable sources')
+          PY
+      - name: Upload test-only design ZIP and preview sheet
+        uses: actions/upload-artifact@v4
+        with:
+          name: kopanka-map004-art-preview-v0.1
+          path: |
+            docs/art/map-004-preview/MAP-004-art-preview-v0.1.zip
+            docs/art/map-004-preview/contact_sheet.png
+            docs/art/map-004-preview/manifest.json
+          if-no-files-found: error
+          retention-days: 30
