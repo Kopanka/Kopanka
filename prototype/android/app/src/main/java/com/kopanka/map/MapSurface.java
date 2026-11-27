@@ -272,6 +272,10 @@ public final class MapSurface extends View {
         int south=fog.isExplored(col,row+1)
                 ? Math.max(0,height-elevation.at(col,row+1)) : 0;
         paint.setStyle(Paint.Style.FILL);
+        // One-level banks are a low, grass-tinted rise, not a thick
+        // dark-grey platform edge. Steeper rock faces keep their separate
+        // shaded material until height-aware cliff PNGs are delivered.
+        boolean grassBank = !isMountainKind(terrainAt(col,row));
         if (east>0) {
             float drop=east*ElevationMap.STEP_PX*IsoCamera.ZOOM;
             diamond.reset();
@@ -280,7 +284,8 @@ public final class MapSurface extends View {
             diamond.lineTo(x,topY+halfH+drop);
             diamond.lineTo(x+halfW,topY+drop);
             diamond.close();
-            paint.setColor(0xFF827E6A);
+            paint.setColor(east == 1 && grassBank ? 0xFF93AC7D
+                    : east == 1 ? 0xFF9E9F8E : 0xFF827E6A);
             canvas.drawPath(diamond,paint);
         }
         if (south>0) {
@@ -291,7 +296,8 @@ public final class MapSurface extends View {
             diamond.lineTo(x-halfW,topY+drop);
             diamond.lineTo(x,topY+halfH+drop);
             diamond.close();
-            paint.setColor(0xFF625F57);
+            paint.setColor(south == 1 && grassBank ? 0xFF839E70
+                    : south == 1 ? 0xFF858779 : 0xFF625F57);
             canvas.drawPath(diamond,paint);
         }
     }
