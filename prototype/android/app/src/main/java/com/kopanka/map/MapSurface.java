@@ -260,8 +260,14 @@ public final class MapSurface extends View {
         if (height==0) return;
         float halfW=IsoCamera.TILE_WIDTH*IsoCamera.ZOOM/2f;
         float halfH=IsoCamera.TILE_HEIGHT*IsoCamera.ZOOM/2f;
-        int east=Math.max(0,height-elevation.at(col+1,row));
-        int south=Math.max(0,height-elevation.at(col,row+1));
+        // A wall belongs to the transition between two cells, not to
+        // either cell alone. Never draw it into an unexplored neighbor:
+        // those cliff faces appeared as brown rims inside the fog.
+        // The neighbor's elevation is consulted only when it is explored.
+        int east=fog.isExplored(col+1,row)
+                ? Math.max(0,height-elevation.at(col+1,row)) : 0;
+        int south=fog.isExplored(col,row+1)
+                ? Math.max(0,height-elevation.at(col,row+1)) : 0;
         paint.setStyle(Paint.Style.FILL);
         if (east>0) {
             float drop=east*ElevationMap.STEP_PX*IsoCamera.ZOOM;
