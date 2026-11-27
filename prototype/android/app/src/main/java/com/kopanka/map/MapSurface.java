@@ -55,6 +55,7 @@ public final class MapSurface extends View {
     private static final int OUTSIDE_WORLD_COLOR = 0xFF3B3F42;
     private static final int UNEXPLORED_FOG_COLOR = 0xFF3B3F42;
     private final Path diamond = new Path();
+    private final Path fogMask = new Path();
     private float downX, downY, lastX, lastY;
     private boolean moving;
 
@@ -129,15 +130,15 @@ public final class MapSurface extends View {
                 int col=sum-row;
                 float px=camera.screenX(col,row,w);
                 float py=camera.screenY(col,row,h);
-                if (!fog.isExplored(col,row)) {
-                    drawFogDiamond(canvas,px,py);
-                } else {
+                if (fog.isExplored(col,row)) {
                     int kind=terrainAt(col,row);
                     int underlay=kind==WorldMap.SEA || kind==WorldMap.RIVER
                             ? 0xFF187B9A
                             : isMountainKind(kind) ? 0xFF827E6A : 0xFF91B366;
                     drawDiamond(canvas,px,py,underlay);
                 }
+                // Unexplored cells use the uniform graphite view background.
+                // They are painted together in ONE foreground fog mask below.
             }
         }
 
@@ -170,12 +171,10 @@ public final class MapSurface extends View {
                 float px=camera.screenX(col,row,w);
                 float py=camera.screenY(col,row,h)-elevation.at(col,row)
                         *ElevationMap.STEP_PX*IsoCamera.ZOOM;
-                if (isMountainKind(kind)) {
-                    if (!isMountain(col,row-1)) drawSprite(canvas,"slope_n",px,py);
-                    if (!isMountain(col+1,row)) drawSprite(canvas,"slope_e",px,py);
-                    if (!isMountain(col,row+1)) drawSprite(canvas,"slope_s",px,py);
-                    if (!isMountain(col-1,row)) drawSprite(canvas,"slope_w",px,py);
-                }
+                // The old slope_*.png artwork is a flat tile-outline effect.
+                // Its grey strokes drew long diagonal bars across raised hills
+                // in v0.3.10. Do not render it over the MAP-004 height field.
+                // Height-aware slope art will replace it after art QA.
                 // An open-water procedural river tile must NEVER receive
                 // the land/coast overlay. Previously each water tile saw
                 // river neighbors and painted four sandy shore edges,
@@ -204,21 +203,13 @@ public final class MapSurface extends View {
                             drawSprite(canvas,"coast_corner_sw",px,py);
                     }
                 }
-                if (cell!=null && cell.riverMask>0 && cell.riverMask<=15) {
-                    String id=col==DemoMap.ORIGIN_COL+5 && row==DemoMap.ORIGIN_ROW+3
-                            ? "river_source"
-                            : col==DemoMap.ORIGIN_COL+24 && row==DemoMap.ORIGIN_ROW+20
-                            ? "river_estuary" : maskId("river",cell.riverMask);
-                    drawSprite(canvas,id,px,py);
-                }
-                // Procedural rivers are multi-cell-wide water bands, not
-                // one-tile centerlines. Narrow 1-tile river-mask overlays
-                // on every water cell created a blue lattice with grass
-                // holes. Their water is now rendered in pass 1 as a
-                // continuous water surface; keep river masks for the
-                // hand-authored 32x32 demo centerline only.
+                // River segments from the 32x32 demo are composited once
+                // as a continuous smoothed path after this terrain pass.
+                // Outside the demo, river water is already filled in pass 1.
             }
         }
+
+        drawDemoRiver(canvas,w,h);
 
         // Pass 3: tall scenery/structures, sorted by individual footprint depth.
         ArrayList<Sprite> scenery=new ArrayList<>();
@@ -245,16 +236,24 @@ public final class MapSurface extends View {
                     camera.screenY(item.col,item.row,h)-elevation.at(item.col,item.row)
                             *ElevationMap.STEP_PX*IsoCamera.ZOOM);
 
-        // Pass 4 ALWAYS last: opaque GRAPHITE hides unexplored terrain and tall sprite overlap.
+        // Pass 4 ALWAYS last: a SINGLE opaque graphite path covers the
+        // union of unexplored tile footprints. One fill operation eliminates
+        // the internal AA seams of drawing hundreds of individual diamonds.
+        fogMask.reset();
+        fogMask.setFillType(Path.FillType.WINDING);
         for(int sum=minX+minY;sum<=maxX+maxY;sum++) {
             for(int row=Math.max(minY,sum-maxX);row<=Math.min(maxY,sum-minX);row++) {
                 int col=sum-row;
                 if (fog.isExplored(col,row)) continue;
                 float px=camera.screenX(col,row,w),py=camera.screenY(col,row,h);
-                drawFogDiamond(canvas,px,py);
-                // Single opaque graphite fog, with no PNG overlay or alpha.
+                addFogDiamond(px,py);
             }
         }
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(UNEXPLORED_FOG_COLOR);
+        paint.setAntiAlias(false);
+        canvas.drawPath(fogMask,paint);
+        paint.setAntiAlias(true);
     }
 
     /** Visible vertical faces on front-facing raised tile edges.
@@ -341,12 +340,15 @@ public final class MapSurface extends View {
                noise%17==0?"ground_grass_03":"ground_grass_01";
     }
     private String worldObject(int col,int row,int kind) {
-        int n=(col*73+row*131+col*row)&0x7fffffff;
+        int n=col*0x45d9f3b ^ row*0x27d4eb2d ^ 0x9e3779b9;
+        n^=n>>>16; n*=0x7feb352d;
+        n^=n>>>15; n*=0x846ca68b;
+        n=(n^(n>>>16))&0x7fffffff;
         switch(kind) {
             case WorldMap.MOUNTAIN:
                 // Raised terrain carries the mass; sparse visible peaks avoid
                 // the tiled wallpaper of mountain PNGs seen in Android 0.3.4.
-                if (n%9!=0) return null;
+                if (elevation.at(col,row)<3 || n%15!=0) return null;
                 return n%2==0?"mountain_02":"mountain_01";
             case WorldMap.MINE:return "mine_mountain_small";
             case WorldMap.CAVE:return "cave_entrance_small";
@@ -389,27 +391,77 @@ public final class MapSurface extends View {
         canvas.drawBitmap(bmp,null,spriteBounds,paint);
         return true;
     }
-    /**
-     * Fog must be opaque and seam-free even at fractional 1.2x zoom.
-     * The normal anti-aliased diamonds left tiny translucent hairlines
-     * between neighbors, exposing the dark background/underlying grid.
-     * Slightly overdraw each cell using non-AA fill and restore paint
-     * settings before other passes.
+    /** Append one tile to the shared opaque graphite fog silhouette. */
+    private void addFogDiamond(float x,float y) {
+        float hw=IsoCamera.TILE_WIDTH*IsoCamera.ZOOM/2f + 0.65f;
+        float hh=IsoCamera.TILE_HEIGHT*IsoCamera.ZOOM/2f + 0.65f;
+        fogMask.moveTo(x,y-hh);
+        fogMask.lineTo(x+hw,y);
+        fogMask.lineTo(x,y+hh);
+        fogMask.lineTo(x-hw,y);
+        fogMask.close();
+    }
+
+    /** Continuous anti-aliased river path following the authored demo masks.
+     *
+     * Unlike the old river_mask_*.png segments, this is a single stroke:
+     * no repeated pipe rims, sharp joints or unconnected estuary strips.
+     * Height is read at discovered/rendered land, not hidden by fog.
+     * The final opaque fog pass masks unexplored parts of the path.
      */
-    private void drawFogDiamond(Canvas canvas,float x,float y) {
-        float hw=IsoCamera.TILE_WIDTH*IsoCamera.ZOOM/2f+0.8f;
-        float hh=IsoCamera.TILE_HEIGHT*IsoCamera.ZOOM/2f+0.8f;
-        diamond.reset();
-        diamond.moveTo(x,y-hh);
-        diamond.lineTo(x+hw,y);
-        diamond.lineTo(x,y+hh);
-        diamond.lineTo(x-hw,y);
-        diamond.close();
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(UNEXPLORED_FOG_COLOR);
-        paint.setAntiAlias(false);
-        canvas.drawPath(diamond,paint);
+    private void drawDemoRiver(Canvas canvas,int w,int h) {
+        if (demo==null) return;
+        ArrayList<float[]> points=new ArrayList<>();
+        int col=DemoMap.ORIGIN_COL+5, row=DemoMap.ORIGIN_ROW+3;
+        int previousCol=Integer.MIN_VALUE, previousRow=Integer.MIN_VALUE;
+        final int[] dc={0,1,0,-1}, dr={-1,0,1,0};
+        final int[] mask={1,2,4,8}, opposite={4,8,1,2};
+        for (int n=0;n<demo.width*demo.height;n++) {
+            DemoMap.Cell c=demo.at(col,row);
+            if(c==null || c.riverMask==0) break;
+            float x=camera.screenX(col,row,w);
+            float y=camera.screenY(col,row,h)
+                    -elevation.at(col,row)*ElevationMap.STEP_PX*IsoCamera.ZOOM;
+            points.add(new float[]{x,y});
+            boolean advanced=false;
+            for(int d=0;d<4;d++){
+                if((c.riverMask&mask[d])==0) continue;
+                int nc=col+dc[d],nr=row+dr[d];
+                if(nc==previousCol && nr==previousRow) continue;
+                DemoMap.Cell next=demo.at(nc,nr);
+                if(next==null || (next.riverMask&opposite[d])==0) continue;
+                previousCol=col;previousRow=row;col=nc;row=nr;
+                advanced=true;break;
+            }
+            if(!advanced) break;
+        }
+        if(points.size()<2) return;
+        Path water=new Path();
+        float[] first=points.get(0);
+        water.moveTo(first[0],first[1]);
+        for(int i=1;i<points.size();i++){
+            float[] a=points.get(i-1),b=points.get(i);
+            water.quadTo(a[0],a[1],(a[0]+b[0])/2f,(a[1]+b[1])/2f);
+        }
+        float[] last=points.get(points.size()-1);
+        water.lineTo(last[0],last[1]);
+
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        paint.setStrokeJoin(Paint.Join.ROUND);
         paint.setAntiAlias(true);
+        paint.setColor(0xFFC1B885);
+        paint.setStrokeWidth(19f*IsoCamera.ZOOM);
+        canvas.drawPath(water,paint);
+        paint.setColor(0xFF187B9A);
+        paint.setStrokeWidth(15f*IsoCamera.ZOOM);
+        canvas.drawPath(water,paint);
+        // Delicate central glint avoids a hard fake-pipe seam.
+        paint.setColor(0x665FD3DA);
+        paint.setStrokeWidth(1.6f*IsoCamera.ZOOM);
+        canvas.drawPath(water,paint);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setStrokeCap(Paint.Cap.BUTT);
     }
 
     private void drawDiamond(Canvas canvas, float x, float y, int color) {
