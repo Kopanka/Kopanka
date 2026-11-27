@@ -23,6 +23,7 @@ import android.view.View;
 public final class MapSurface extends View {
     private final WorldMap world = new WorldMap();
     private final IsoCamera camera = new IsoCamera();
+    private ElevationMap elevation;
     private final FogStore fog;
     private final SharedPreferences cameraPrefs;
     private static final String CAMERA_PREFS = "kopanka_map_camera_v1";
@@ -75,6 +76,7 @@ public final class MapSurface extends View {
         }
         art = catalog;
         demo = example;
+        elevation = new ElevationMap(world, demo);
         // Initial technical discovery, without introducing a hero or game mechanics.
         if (fog.reveal(256, 254, 10)) fog.save();
         setBackgroundColor(OUTSIDE_WORLD_COLOR);
@@ -124,9 +126,12 @@ public final class MapSurface extends View {
                 // The same PNG tiles render the entire 512x512 world, not
                 // only the 32x32 hand-authored demo. No procedural grid.
                 int kind=terrainAt(col,row);
+                int level=elevation.at(col,row);
+                float raisedY=py-level*ElevationMap.STEP_PX*IsoCamera.ZOOM;
+                drawHeightWalls(canvas,px,raisedY,col,row,level);
                 String base=baseTile(col,row,kind,cell);
-                if (!drawSprite(canvas,base,px,py))
-                    drawDiamond(canvas,px,py,kind==WorldMap.SEA?0xFF376F93:0xFFADC18C);
+                if (!drawSprite(canvas,base,px,raisedY))
+                    drawDiamond(canvas,px,raisedY,kind==WorldMap.SEA?0xFF376F93:0xFFADC18C);
             }
         }
 
@@ -137,7 +142,9 @@ public final class MapSurface extends View {
                 if (!fog.isExplored(col,row)) continue;
                 DemoMap.Cell cell=demo==null?null:demo.at(col,row);
                 int kind=terrainAt(col,row);
-                float px=camera.screenX(col,row,w),py=camera.screenY(col,row,h);
+                float px=camera.screenX(col,row,w);
+                float py=camera.screenY(col,row,h)-elevation.at(col,row)
+                        *ElevationMap.STEP_PX*IsoCamera.ZOOM;
                 if (isMountainKind(kind)) {
                     if (!isMountain(col,row-1)) drawSprite(canvas,"slope_n",px,py);
                     if (!isMountain(col+1,row)) drawSprite(canvas,"slope_e",px,py);
@@ -206,7 +213,8 @@ public final class MapSurface extends View {
         });
         for(Sprite item:scenery)
             drawSprite(canvas,item.id,camera.screenX(item.col,item.row,w),
-                    camera.screenY(item.col,item.row,h));
+                    camera.screenY(item.col,item.row,h)-elevation.at(item.col,item.row)
+                            *ElevationMap.STEP_PX*IsoCamera.ZOOM);
 
         // Pass 4 ALWAYS last: covers unexplored terrain and tall sprite overlap.
         for(int sum=minX+minY;sum<=maxX+maxY;sum++) {
@@ -218,6 +226,40 @@ public final class MapSurface extends View {
                 // Single approved diagnostic fog color. The v1.4 fog PNG is
                 // darker than purple; drawing it on top caused the two-tone bug.
             }
+        }
+    }
+
+    /** Visible vertical faces on front-facing raised tile edges.
+     *  The tile top is still a normal 128x64 PNG; these faces give actual
+     *  terrain height at the approved camera angle, without adding a mesh. */
+    private void drawHeightWalls(Canvas canvas,float x,float topY,int col,int row,int height) {
+        if (height==0) return;
+        float halfW=IsoCamera.TILE_WIDTH*IsoCamera.ZOOM/2f;
+        float halfH=IsoCamera.TILE_HEIGHT*IsoCamera.ZOOM/2f;
+        int east=Math.max(0,height-elevation.at(col+1,row));
+        int south=Math.max(0,height-elevation.at(col,row+1));
+        paint.setStyle(Paint.Style.FILL);
+        if (east>0) {
+            float drop=east*ElevationMap.STEP_PX*IsoCamera.ZOOM;
+            diamond.reset();
+            diamond.moveTo(x+halfW,topY);
+            diamond.lineTo(x,topY+halfH);
+            diamond.lineTo(x,topY+halfH+drop);
+            diamond.lineTo(x+halfW,topY+drop);
+            diamond.close();
+            paint.setColor(0xFF827E6A);
+            canvas.drawPath(diamond,paint);
+        }
+        if (south>0) {
+            float drop=south*ElevationMap.STEP_PX*IsoCamera.ZOOM;
+            diamond.reset();
+            diamond.moveTo(x,topY+halfH);
+            diamond.lineTo(x-halfW,topY);
+            diamond.lineTo(x-halfW,topY+drop);
+            diamond.lineTo(x,topY+halfH+drop);
+            diamond.close();
+            paint.setColor(0xFF625F57);
+            canvas.drawPath(diamond,paint);
         }
     }
 
@@ -268,7 +310,10 @@ public final class MapSurface extends View {
         int n=(col*73+row*131+col*row)&0x7fffffff;
         switch(kind) {
             case WorldMap.MOUNTAIN:
-                return n%7==0?"mountain_02":"mountain_01";
+                // Raised terrain carries the mass; sparse visible peaks avoid
+                // the tiled wallpaper of mountain PNGs seen in Android 0.3.4.
+                if (n%9!=0) return null;
+                return n%2==0?"mountain_02":"mountain_01";
             case WorldMap.MINE:return "mine_mountain_small";
             case WorldMap.CAVE:return "cave_entrance_small";
             case WorldMap.CONIFER:return n%2==0?"forest_pine_01":"forest_pine_02";
@@ -281,7 +326,9 @@ public final class MapSurface extends View {
     private void addScenery(ArrayList<Sprite> scenery,int col,int row,String id,int h) {
         MapAssetCatalog.Entry e=art==null?null:art.entries().get(id);
         if(e==null) return;
-        float depth=camera.screenY(col,row,h)+(e.sortFootY-e.anchorY)*IsoCamera.ZOOM;
+        float depth=camera.screenY(col,row,h)-elevation.at(col,row)
+                *ElevationMap.STEP_PX*IsoCamera.ZOOM
+                +(e.sortFootY-e.anchorY)*IsoCamera.ZOOM;
         scenery.add(new Sprite(col,row,id,depth));
     }
     private boolean drawSprite(Canvas canvas,String id,float x,float y) {
