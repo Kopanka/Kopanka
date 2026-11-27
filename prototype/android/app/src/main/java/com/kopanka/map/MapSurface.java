@@ -144,9 +144,14 @@ public final class MapSurface extends View {
                     if (!isMountain(col,row+1)) drawSprite(canvas,"slope_s",px,py);
                     if (!isMountain(col-1,row)) drawSprite(canvas,"slope_w",px,py);
                 }
-                if (kind!=WorldMap.SEA) {
-                    // Coast transitions also border procedural open-water
-                    // river tiles; demo river remains a centerline overlay.
+                // An open-water procedural river tile must NEVER receive
+                // the land/coast overlay. Previously each water tile saw
+                // river neighbors and painted four sandy shore edges,
+                // producing the regular yellow diamond lattice.
+                boolean proceduralRiver = cell==null && kind==WorldMap.RIVER;
+                if (kind!=WorldMap.SEA && !proceduralRiver) {
+                    // Coast transitions border both sea and procedural
+                    // wide river, but are painted on LAND cells only.
                     int coast=neighborMask(col,row,WorldMap.SEA);
                     if (demo==null || demo.at(col,row)==null) {
                         coast|=neighborMask(col,row,WorldMap.RIVER);
