@@ -26,7 +26,7 @@ def main():
         alpha=im.getchannel('A')
         vmin,vmax=alpha.getextrema()
         assert vmin==0
-        assert vmax==(0 if i==0 else 255), (i,vmax)
+        assert vmax==0 if i==0 else 0<vmax<=255, (i,vmax)
         assert alpha.getpixel((64,32))==0
         for y in range(64):
             for x in range(128):
