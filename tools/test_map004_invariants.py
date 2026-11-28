@@ -87,9 +87,12 @@ class Map004Invariants(unittest.TestCase):
 
     def test_small_grass_banks_are_not_drawn_as_dark_cliffs(self):
         src = self.renderer
-        self.assertIn("boolean grassBank = !isMountainKind(terrainAt(col,row))", src)
-        self.assertIn("east == 1 && grassBank", src)
-        self.assertIn("south == 1 && grassBank", src)
+        faces = (SRC / "NaturalCliffFaces.java").read_text(encoding="utf-8")
+        self.assertIn("boolean mountain = isMountainKind(terrainAt(col,row))", src)
+        self.assertIn("if (east>0) naturalCliffs.draw(", src)
+        self.assertIn("if (south>0) naturalCliffs.draw(", src)
+        self.assertIn("faceColor=mountain", faces)
+        self.assertIn("canvas.clipPath(face);", faces)
 
     def test_legacy_segment_seams_and_slope_bars_are_not_drawn(self):
         src = self.renderer
