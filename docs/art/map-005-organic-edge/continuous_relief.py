@@ -31,5 +31,11 @@ def draw_relief(image,cells,ox,oy,dx=64,dy=32,step=13):
             mountain=cell["terrain"]=="mountain"
             base=(142,153,128) if mountain else (148,178,110)
             for i,(p,q) in enumerate(((a,b),(b,e),(e,f),(f,a))):
-                shade=(5,-10,-4,9)[i]
+                # Derive shading from projected slope, not triangle index.
+                # Flat triangles must have identical color.
+                # Compare edge midpoint to the unraised center.
+                midpoint_y=(p[1]+q[1])/2
+                expected=(-dy/2,dy/2,dy/2,-dy/2)[i]
+                slope=(midpoint_y-peak[1]-expected)/step
+                shade=round(max(-12,min(12,slope*6)))
                 d.polygon([p,q,peak],fill=tuple(max(0,min(255,v+shade)) for v in base)+(255,))
