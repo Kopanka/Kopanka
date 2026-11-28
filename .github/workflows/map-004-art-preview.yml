@@ -10,6 +10,7 @@ on:
       - 'docs/art/map-005-height-faces/**'
       - 'docs/art/map-005-mixed-corners/**'
       - 'docs/art/map-005-water-cliffs/**'
+      - 'docs/art/map-005-join-lab/**'
       - '.github/workflows/map-004-art-preview.yml'
   workflow_dispatch:
 
@@ -137,6 +138,23 @@ jobs:
           print('PASS: authored landmarks, geography, shores unchanged; cliff candidates rendered')
           print('Cliff candidates used:',integrated['cliffAssetsUsed'])
           PY
+      - name: MAP-005 targeted visual diagnostic for absent joins
+        run: |
+          python docs/art/map-005-join-lab/render.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          p=Path('docs/art/map-005-join-lab')
+          r=json.loads((p/'join_lab_report.json').read_text())
+          assert r['caseCount']==8
+          assert sum(x['kind']=='water-cliff' for x in r['cases'])==4
+          assert sum(x['kind']=='mixed' for x in r['cases'])==4
+          assert r['geometry']['zoom']==1.2
+          im=Image.open(p/'join_lab.png')
+          assert im.size==(1300,910)
+          print('PASS: 8 height-aware join inspection examples')
+          PY
       - name: Check authored source geography unchanged
         run: |
           python - <<'PY'
@@ -188,5 +206,7 @@ jobs:
             docs/art/map-005-water-cliffs/manifest.json
             docs/art/map-005-water-cliffs/preview_20_water_cliffs.png
             docs/art/map-005-water-cliffs/water_cliff_png/
+            docs/art/map-005-join-lab/join_lab.png
+            docs/art/map-005-join-lab/join_lab_report.json
           if-no-files-found: error
           retention-days: 30
