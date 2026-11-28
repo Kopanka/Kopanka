@@ -6,6 +6,7 @@ on:
       - art/map-004-height-aware-preview
     paths:
       - 'docs/art/map-004-preview/**'
+      - 'docs/art/map-005-natural-shore/**'
       - '.github/workflows/map-004-art-preview.yml'
   workflow_dispatch:
 
@@ -74,6 +75,10 @@ jobs:
                   assert im.getchannel('A').getextrema()==(0,0)
           print('PASS 16 coast masks; matching Android bit order, geometry, PNG and SHA256')
           PY
+      - name: Generate and test MAP-005 organic shoreline candidates
+        run: |
+          python docs/art/map-005-natural-shore/generate.py
+          python docs/art/map-005-natural-shore/test_shores.py
       - name: Assemble actual 32x32 authored scene using reusable art sprites
         run: python docs/art/map-004-preview/render_authored_scene.py
       - name: Check authored source geography unchanged
@@ -110,5 +115,8 @@ jobs:
             docs/art/map-004-preview/shoreline_manifest.json
             docs/art/map-004-preview/shoreline_16_preview.png
             docs/art/map-004-preview/shore_png/
+            docs/art/map-005-natural-shore/manifest.json
+            docs/art/map-005-natural-shore/preview_16.png
+            docs/art/map-005-natural-shore/shore_png/
           if-no-files-found: error
           retention-days: 30
