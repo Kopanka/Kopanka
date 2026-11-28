@@ -49,6 +49,7 @@ public final class MapSurface extends View {
     }
 
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final NaturalCliffFaces naturalCliffs = new NaturalCliffFaces();
     // Approved 2026-11-27: opaque graphite fog (#3B3F42) for every
     // unexplored map cell, including the out-of-world background.
     // Never read undiscovered terrain for fog.
@@ -276,39 +277,11 @@ public final class MapSurface extends View {
                 ? Math.max(0,height-elevation.at(col+1,row)) : 0;
         int south=fog.isExplored(col,row+1)
                 ? Math.max(0,height-elevation.at(col,row+1)) : 0;
-        paint.setStyle(Paint.Style.FILL);
-        // One-level banks are a low, grass-tinted rise, not a thick
-        // dark-grey platform edge. Steeper rock faces keep their separate
-        // shaded material until height-aware cliff PNGs are delivered.
-        boolean grassBank = !isMountainKind(terrainAt(col,row));
-        if (east>0) {
-            float drop=east*ElevationMap.STEP_PX*IsoCamera.ZOOM;
-            diamond.reset();
-            diamond.moveTo(x+halfW,topY);
-            diamond.lineTo(x,topY+halfH);
-            diamond.lineTo(x,topY+halfH+drop);
-            diamond.lineTo(x+halfW,topY+drop);
-            diamond.close();
-            // Draw a terrain-tinted, low-contrast transition rather than
-            // the old long grey platform seam. Keep real height geometry.
-            paint.setColor(east == 1 && grassBank ? 0xFF9BB783
-                    : east == 1 ? 0xFF9BA18B
-                    : grassBank ? 0xFF8CA97C : 0xFF808777);
-            canvas.drawPath(diamond,paint);
-        }
-        if (south>0) {
-            float drop=south*ElevationMap.STEP_PX*IsoCamera.ZOOM;
-            diamond.reset();
-            diamond.moveTo(x,topY+halfH);
-            diamond.lineTo(x-halfW,topY);
-            diamond.lineTo(x-halfW,topY+drop);
-            diamond.lineTo(x,topY+halfH+drop);
-            diamond.close();
-            paint.setColor(south == 1 && grassBank ? 0xFF91AD7C
-                    : south == 1 ? 0xFF8E9982
-                    : grassBank ? 0xFF819D74 : 0xFF707B6B);
-            canvas.drawPath(diamond,paint);
-        }
+        boolean mountain = isMountainKind(terrainAt(col,row));
+        if (east>0) naturalCliffs.draw(canvas,x,topY,halfW,halfH,
+                col,row,0,east,mountain);
+        if (south>0) naturalCliffs.draw(canvas,x,topY,halfW,halfH,
+                col,row,1,south,mountain);
     }
 
     private static String maskId(String type,int bits) {
