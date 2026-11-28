@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """MAP-005: height-aware visible cliff faces E/S; *experimental* art.
-Two material classes × levels 1/2, fixed STEP=13px at zoom 1x.
+Two materials × levels 1–5; E/S sides plus same-height ES corner pairs.\nFixed technical STEP=13px at zoom 1x; painterly art approval still pending.
 RGBA objects, native width128, anchor(64,32); no game renderer changes.
 """
 from pathlib import Path
@@ -47,17 +47,17 @@ def paint(side,level,mat):
 
 def main():
     output=P/'cliff_png';output.mkdir(exist_ok=True)
-    m={'family':'map005_height_cliff_face_v2',
+    m={'family':'map005_height_cliff_face_v3',
        'status':'TECHNICAL ART CANDIDATE — NOT APPROVED',
        'geometry':{'worldCols':512,'worldRows':512,
                    'tileWidthPx':128,'tileHeightPx':64,
                    'tileAnchor':[64,32],'zoom':1.2,'heightStepPx':STEP},
-       'limitations':['E/S sides only; corners/junctions not covered',
-                      'Levels 3-5 not generated',
+       'limitations':['Corners supported for equal-height, same-material ES faces only',
+                      'Different-height and mixed-material junctions not covered',
                       'On-device visual, fog and occlusion QA required'],
        'assets':[]}
-    sheet=Image.new('RGB',(960,560),'#e7e8df')
-    variants=((s,l,mat) for s in 'ES' for l in (1,2)
+    sheet=Image.new('RGB',(960,2220),'#e7e8df')
+    variants=((s,l,mat) for s in 'ES' for l in range(1,6)
               for mat in ('grass','rock'))
     for i,(side,level,mat) in enumerate(variants):
         im=paint(side,level,mat)
@@ -71,7 +71,7 @@ def main():
             'material':mat,'layer':'cliff',
             'footprintCols':1,'footprintRows':1,
             'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
-        x=25+(i%4)*235;y=20+(i//4)*270
+        x=25+(i%4)*235;y=20+(i//4)*238
         frame=Image.new('RGBA',(220,245),(222,227,217,255))
         base=Image.new('RGBA',(128,64))
         ImageDraw.Draw(base).polygon(
@@ -80,10 +80,40 @@ def main():
         frame.alpha_composite(im,(43,44))
         ImageDraw.Draw(frame).text((12,207),name,fill=(35,49,34,255))
         sheet.paste(frame.convert('RGB'),(x,y))
-    sheet.save(P/'preview_8.png')
+    # Equal-height E+S corners are separate, lossless composition modes.
+    # Their common corner at native (64,64) is geometrically identical.
+    # Unequal levels need additional connector assets, not a fake seam.
+    corners=Image.new('RGB',(960,1200),'#e7e8df')
+    for i,(level,mat) in enumerate((l,m) for l in range(1,6)
+                                   for m in ('grass','rock')):
+        east=paint('E',level,mat)
+        south=paint('S',level,mat)
+        pair=Image.alpha_composite(south,east)
+        name=f'cliff_es_corner_h{level}_{mat}.png'
+        path=output/name
+        pair.save(path,optimize=True)
+        m['assets'].append({
+            'id':path.stem,'path':str(path.relative_to(P)),
+            'widthPx':pair.width,'heightPx':pair.height,
+            'anchorX':64,'anchorY':32,'sortFootY':64+level*STEP,
+            'heightLevel':level,'visibleSide':'ES',
+            'junction':'equal_height_E_S','material':mat,
+            'layer':'cliff','footprintCols':1,'footprintRows':1,
+            'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
+        x=25+(i%4)*235;y=20+(i//4)*226
+        frame=Image.new('RGBA',(220,215),(222,227,217,255))
+        ground=Image.new('RGBA',(128,64))
+        ImageDraw.Draw(ground).polygon(
+            [(64,0),(128,32),(64,64),(0,32)],fill=(139,181,105,255))
+        frame.alpha_composite(ground,(43,27))
+        frame.alpha_composite(pair,(43,27))
+        ImageDraw.Draw(frame).text((12,180),name,fill=(35,49,34,255))
+        corners.paste(frame.convert('RGB'),(x,y))
+    sheet.save(P/'preview_20.png')
+    corners.save(P/'preview_corners_10.png')
     (P/'manifest.json').write_text(
         json.dumps(m,ensure_ascii=False,indent=2)+'\n')
-    print('Generated eight candidate height-aware cliff faces; ART PENDING')
+    print('Generated 20 E/S cliff faces + 10 equal-height ES corner candidates; ART PENDING')
 
 if __name__=='__main__':
     main()
