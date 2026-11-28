@@ -221,8 +221,13 @@ public final class MapSurface extends View {
                 if (cell==null) {
                     String id=worldObject(col,row,world.terrain(col,row));
                     if (id!=null) addScenery(scenery,col,row,id,h);
-                } else for (String id:cell.objects)
-                    addScenery(scenery,col,row,id,h);
+                } else for (String id:cell.objects) {
+                    // MAP-005 first controlled use of delivered detailed art.
+                    // Large PNG macros are scenery ONLY: they must never
+                    // replace a ground/coast/slope tile without seam masks.
+                    String previewId=map005PreviewObject(col,row,id);
+                    addScenery(scenery,col,row,previewId==null?id:previewId,h);
+                }
             }
         }
         Collections.sort(scenery,new Comparator<Sprite>() {
@@ -365,6 +370,40 @@ public final class MapSurface extends View {
             default:return null;
         }
     }
+    /** Limited MAP-005 art preview on the EXISTING 32x32 authored demo.
+     *  All other 512x512 locations keep the current working MAP-004 art.
+     *  Missing input ZIP / manifest entry gracefully uses the old sprite.
+     *  Never use the macro slopes or coast as seamless ground tiles.
+     */
+    private String map005PreviewObject(int col,int row,String originalId) {
+        if (art==null) return null;
+        int localCol=col-DemoMap.ORIGIN_COL;
+        int localRow=row-DemoMap.ORIGIN_ROW;
+        String id=null;
+        if ("cave_entrance_small".equals(originalId)
+                && localCol==3 && localRow==12)
+            id="map005_natural_cave_02";
+        else if (originalId.startsWith("forest_")
+                && ((localCol==20 && localRow==5)
+                    || (localCol==19 && localRow==8)))
+            id="map005_forest_mix_01";
+        else if (originalId.startsWith("mountain_")
+                && localCol==2 && localRow==1)
+            id="map005_ridge_low_01";
+        if(id==null || !art.entries().containsKey(id)) return null;
+        // Avoid showing a tall macro above opaque fog while neighboring
+        // cells remain hidden. Detailed object visuals only appear after
+        // the complete local vicinity has been discovered.
+        for (int dy=-2;dy<=2;dy++) {
+            for (int dx=-2;dx<=2;dx++) {
+                if (!world.inside(col+dx,row+dy)
+                        || !fog.isExplored(col+dx,row+dy))
+                    return null;
+            }
+        }
+        return id;
+    }
+
     private void addScenery(ArrayList<Sprite> scenery,int col,int row,String id,int h) {
         MapAssetCatalog.Entry e=art==null?null:art.entries().get(id);
         if(e==null) return;
