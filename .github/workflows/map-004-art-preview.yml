@@ -7,6 +7,7 @@ on:
     paths:
       - 'docs/art/map-004-preview/**'
       - 'docs/art/map-005-natural-shore/**'
+      - 'docs/art/map-005-height-faces/**'
       - '.github/workflows/map-004-art-preview.yml'
   workflow_dispatch:
 
@@ -79,6 +80,10 @@ jobs:
         run: |
           python docs/art/map-005-natural-shore/generate.py
           python docs/art/map-005-natural-shore/test_shores.py
+      - name: Generate and test MAP-005 level-1/2 height-aware cliff candidates
+        run: |
+          python docs/art/map-005-height-faces/generate.py
+          python docs/art/map-005-height-faces/test_faces.py
       - name: Assemble actual 32x32 authored scene using reusable art sprites
         run: python docs/art/map-004-preview/render_authored_scene.py
       - name: Assemble 32x32 authored scene with MAP-005 natural shore overlays
@@ -138,5 +143,8 @@ jobs:
             docs/art/map-004-preview/scene_32x32_natural_shore.jpg
             docs/art/map-004-preview/scene_32x32_natural_shore_report.json
             docs/art/map-005-natural-shore/shore_png/
+            docs/art/map-005-height-faces/manifest.json
+            docs/art/map-005-height-faces/preview_8.png
+            docs/art/map-005-height-faces/cliff_png/
           if-no-files-found: error
           retention-days: 30
