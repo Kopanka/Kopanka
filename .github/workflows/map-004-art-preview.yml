@@ -207,6 +207,27 @@ jobs:
           assert ImageChops.difference(a,b).getbbox()
           print('PASS massif top rendering, fixed iso geometry, unchanged source data')
           PY
+      - name: Render continuous relief v9
+        env:
+          MAP005_SCENE_VARIANT: continuous
+        run: python docs/art/map-004-preview/render_authored_scene.py
+      - name: Verify v9 scene invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image, ImageChops
+          p=Path('docs/art/map-004-preview')
+          a=json.loads((p/'scene_32x32_massif_v8_report.json').read_text())
+          b=json.loads((p/'scene_32x32_continuous_v9_report.json').read_text())
+          assert b['sceneCandidate']=='continuous v9'
+          for key in ('width','height','objectsById','authoredRiverCells','shoreMaskCells'):
+              assert a[key]==b[key],key
+          x=Image.open(p/'scene_32x32_massif_v8.jpg')
+          y=Image.open(p/'scene_32x32_continuous_v9.jpg')
+          assert x.size==y.size and ImageChops.difference(x,y).getbbox()
+          print('PASS v9 scene invariants; visual approval still required')
+          PY
       - name: Check authored source geography unchanged
         run: |
           python - <<'PY'
@@ -264,5 +285,7 @@ jobs:
             docs/art/map-004-preview/scene_32x32_organic_edge_v7_report.json
             docs/art/map-004-preview/scene_32x32_massif_v8.jpg
             docs/art/map-004-preview/scene_32x32_massif_v8_report.json
+            docs/art/map-004-preview/scene_32x32_continuous_v9.jpg
+            docs/art/map-004-preview/scene_32x32_continuous_v9_report.json
           if-no-files-found: error
           retention-days: 30
