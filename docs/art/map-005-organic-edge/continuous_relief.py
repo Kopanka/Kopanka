@@ -37,5 +37,5 @@ def draw_relief(image,cells,ox,oy,dx=64,dy=32,step=13):
                 midpoint_y=(p[1]+q[1])/2
                 expected=(-dy/2,dy/2,dy/2,-dy/2)[i]
                 slope=(midpoint_y-peak[1]-expected)/step
-                shade=round(max(-12,min(12,slope*6)))
+                shade=0  # diagnostic: isolate geometry from all facet shading
                 d.polygon([p,q,peak],fill=tuple(max(0,min(255,v+shade)) for v in base)+(255,))
