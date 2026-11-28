@@ -289,8 +289,11 @@ public final class MapSurface extends View {
             diamond.lineTo(x,topY+halfH+drop);
             diamond.lineTo(x+halfW,topY+drop);
             diamond.close();
-            paint.setColor(east == 1 && grassBank ? 0xFF93AC7D
-                    : east == 1 ? 0xFF9E9F8E : 0xFF827E6A);
+            // Draw a terrain-tinted, low-contrast transition rather than
+            // the old long grey platform seam. Keep real height geometry.
+            paint.setColor(east == 1 && grassBank ? 0xFF9BB783
+                    : east == 1 ? 0xFF9BA18B
+                    : grassBank ? 0xFF8CA97C : 0xFF808777);
             canvas.drawPath(diamond,paint);
         }
         if (south>0) {
@@ -301,8 +304,9 @@ public final class MapSurface extends View {
             diamond.lineTo(x-halfW,topY+drop);
             diamond.lineTo(x,topY+halfH+drop);
             diamond.close();
-            paint.setColor(south == 1 && grassBank ? 0xFF839E70
-                    : south == 1 ? 0xFF858779 : 0xFF625F57);
+            paint.setColor(south == 1 && grassBank ? 0xFF91AD7C
+                    : south == 1 ? 0xFF8E9982
+                    : grassBank ? 0xFF819D74 : 0xFF707B6B);
             canvas.drawPath(diamond,paint);
         }
     }
@@ -505,6 +509,34 @@ public final class MapSurface extends View {
         paint.setColor(0x665FD3DA);
         paint.setStrokeWidth(1.6f*IsoCamera.ZOOM);
         canvas.drawPath(water,paint);
+
+        // MAP-005: a tapered estuary replaces the visibly rounded loose
+        // river-stroke end. Expand into the sea along the final authored
+        // segment, blending the channel edge with the open-water palette.
+        // Only the demo route is changed; sea tiles and coastline masks stay.
+        float[] beforeLast=points.get(points.size()-2);
+        float vx=last[0]-beforeLast[0],vy=last[1]-beforeLast[1];
+        float len=(float)Math.hypot(vx,vy);
+        if(len>1f){
+            float ux=vx/len,uy=vy/len, nx=-uy,ny=ux;
+            float narrow=8.0f*IsoCamera.ZOOM;
+            float wide=26.0f*IsoCamera.ZOOM;
+            float reach=36.0f*IsoCamera.ZOOM;
+            float tx=last[0]+ux*reach, ty=last[1]+uy*reach;
+            Path mouth=new Path();
+            mouth.moveTo(last[0]+nx*narrow,last[1]+ny*narrow);
+            mouth.quadTo(last[0]+ux*reach*.60f+nx*wide,
+                    last[1]+uy*reach*.60f+ny*wide,
+                    tx+nx*wide*.70f,ty+ny*wide*.70f);
+            mouth.lineTo(tx-nx*wide*.70f,ty-ny*wide*.70f);
+            mouth.quadTo(last[0]+ux*reach*.60f-nx*wide,
+                    last[1]+uy*reach*.60f-ny*wide,
+                    last[0]-nx*narrow,last[1]-ny*narrow);
+            mouth.close();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(0xFF187B9A);
+            canvas.drawPath(mouth,paint);
+        }
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeCap(Paint.Cap.BUTT);
     }
