@@ -25,7 +25,7 @@ class Map004Invariants(unittest.TestCase):
         self.assertIn("TILE_WIDTH = 128f, TILE_HEIGHT = 64f, ZOOM = 1.2f", self.camera)
         self.assertIn("public static final int SIZE = 512", (SRC / "WorldMap.java").read_text())
         self.assertIn("applicationId 'com.kopanka.maptest.stable'", self.gradle)
-        self.assertIn("versionCode 16", self.gradle)
+        self.assertIn("versionCode 17", self.gradle)
 
     def test_demo_river_is_one_continuous_connected_path(self):
         cells = self.data["cells"]
