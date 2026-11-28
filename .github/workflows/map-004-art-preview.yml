@@ -11,6 +11,7 @@ on:
       - 'docs/art/map-005-mixed-corners/**'
       - 'docs/art/map-005-water-cliffs/**'
       - 'docs/art/map-005-join-lab/**'
+      - 'docs/art/map-005-organic-edge/**'
       - '.github/workflows/map-004-art-preview.yml'
   workflow_dispatch:
 
@@ -155,6 +156,30 @@ jobs:
           assert im.size==(1300,910)
           print('PASS: 8 height-aware join inspection examples')
           PY
+      - name: Render MAP-005 organic-height terrain v7 comparison
+        env:
+          MAP005_SCENE_VARIANT: organic
+        run: python docs/art/map-004-preview/render_authored_scene.py
+      - name: Verify organic terrain changes geometry only visually
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image,ImageChops
+          p=Path('docs/art/map-004-preview')
+          old=json.loads((p/'scene_32x32_integrated_candidate_report.json').read_text())
+          new=json.loads((p/'scene_32x32_organic_edge_v7_report.json').read_text())
+          assert old['authoredRiverCells']==new['authoredRiverCells']==37
+          assert old['shoreMaskCells']==new['shoreMaskCells']
+          assert old['objectsById']==new['objectsById']
+          assert new['sceneCandidate']=='organic edge v7'
+          assert new['cliffAssetsUsed']['ordinary']>0
+          img1=Image.open(p/'scene_32x32_integrated_candidate.jpg')
+          img2=Image.open(p/'scene_32x32_organic_edge_v7.jpg')
+          assert img1.size==img2.size
+          assert ImageChops.difference(img1,img2).getbbox()
+          print('PASS: same authored 32x32 geography, different terrain-edge pixels')
+          PY
       - name: Check authored source geography unchanged
         run: |
           python - <<'PY'
@@ -208,5 +233,7 @@ jobs:
             docs/art/map-005-water-cliffs/water_cliff_png/
             docs/art/map-005-join-lab/join_lab.png
             docs/art/map-005-join-lab/join_lab_report.json
+            docs/art/map-004-preview/scene_32x32_organic_edge_v7.jpg
+            docs/art/map-004-preview/scene_32x32_organic_edge_v7_report.json
           if-no-files-found: error
           retention-days: 30
