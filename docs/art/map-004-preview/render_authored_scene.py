@@ -7,7 +7,7 @@ assets; candidate ridge/cave RGBA images are reused without re-rasterization.
 No hero, UI, advertising, economic or gameplay elements.
 """
 from __future__ import annotations
-import json, math, random, hashlib
+import json, math, random, hashlib, os
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -98,7 +98,10 @@ for row in range(32):
             if neighbor is not None and neighbor["terrain"]=="sea":
                 mask|=bit
         if not mask: continue
-        shore=Image.open(ROOT/"shore_png"/f"coast_mask_{mask:02d}.png").convert("RGBA")
+        shore_file=(ROOT.parent/"map-005-natural-shore"/"shore_png"/f"natural_shore_mask_{mask:02d}.png"
+                    if os.environ.get("MAP005_SHORE_VARIANT")=="natural"
+                    else ROOT/"shore_png"/f"coast_mask_{mask:02d}.png")
+        shore=Image.open(shore_file).convert("RGBA")
         x,y=point(col,row)
         px,py=round(x-64),round(y-32)
         if 0<=px<=W-128 and 0<=py<=H-64:
@@ -222,16 +225,18 @@ d.text((65,101),"MAP-005  |  2.5D scene-composition diagnostic  |  NOT Android a
        fill=(95,104,91,255))
 preview=C.convert("RGB")
 preview.thumbnail((2050,1240),Image.Resampling.LANCZOS)
-preview.save(ROOT/"scene_32x32_preview.jpg",quality=90,optimize=True)
+natural=os.environ.get("MAP005_SHORE_VARIANT")=="natural"
+preview.save(ROOT/("scene_32x32_natural_shore.jpg" if natural else "scene_32x32_preview.jpg"),quality=90,optimize=True)
 report={"status":"TECHNICAL COMPOSITE, NOT FINAL ART",
         "width":32,"height":32,
         "authoredRiverCells":len(path),
         "shoreMaskCells":shore_cnt,
+        "shoreCandidate":"natural v2" if natural else "flat v1",
         "shoreMaskSchema":"N=1,E=2,S=4,W=8; demo flat land only",
         "objectsById":counts,
         "source":"Android PR #10 map_32x32.json exact copy",
         "components":"candidate PNG mountains/cave + procedural preview trees/river/cliffs",
         "doesNotReplace":"game tile atlas, QA or integration"}
-(ROOT/"scene_32x32_report.json").write_text(
+(ROOT/("scene_32x32_natural_shore_report.json" if natural else "scene_32x32_report.json")).write_text(
     json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
-print("PASS: assembled 32x32 authored data; output scene_32x32_preview.jpg")
+print("PASS: assembled 32x32 authored scene with "+("natural-v2" if natural else "flat-v1")+" shore candidates")
