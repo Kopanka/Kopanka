@@ -24,9 +24,10 @@ OX,OY=2300,110
 HEIGHT_STEP=13
 SEED=12345
 rng=random.Random(SEED)
-CONTINUOUS=os.environ.get("MAP005_SCENE_VARIANT")=="continuous"
+TEXTURED=os.environ.get("MAP005_SCENE_VARIANT")=="textured"
+CONTINUOUS=TEXTURED or os.environ.get("MAP005_SCENE_VARIANT")=="continuous"
 INTEGRATED=os.environ.get("MAP005_SCENE_VARIANT")=="integrated"
-ORGANIC=os.environ.get("MAP005_SCENE_VARIANT") in ("organic","massif","continuous")
+ORGANIC=os.environ.get("MAP005_SCENE_VARIANT") in ("organic","massif","continuous","textured")
 MASSIF=os.environ.get("MAP005_SCENE_VARIANT")=="massif"
 if ORGANIC:
     sys.path.insert(0,str(ROOT.parent/"map-005-organic-edge"))
@@ -156,6 +157,9 @@ for level in range(63):
 
 if CONTINUOUS:
     draw_relief(C,cells,OX,OY,DX,DY,HEIGHT_STEP)
+    if TEXTURED:
+        from relief_texture import texture_relief
+        texture_relief(C)
 
 # Technical MAP-005 shoreline experiment: zero-elevation land tiles only.
 # Four-way adjacency corresponds exactly to Android MapSurface.neighborMask.
@@ -321,7 +325,7 @@ d.text((65,101),"MAP-005  |  2.5D scene-composition diagnostic  |  NOT Android a
 preview=C.convert("RGB")
 preview.thumbnail((2050,1240),Image.Resampling.LANCZOS)
 natural=INTEGRATED or ORGANIC or os.environ.get("MAP005_SHORE_VARIANT")=="natural"
-preview_file=("scene_32x32_continuous_v9.jpg" if CONTINUOUS else "scene_32x32_massif_v8.jpg" if MASSIF else
+preview_file=("scene_32x32_textured_v10.jpg" if TEXTURED else "scene_32x32_continuous_v9.jpg" if CONTINUOUS else "scene_32x32_massif_v8.jpg" if MASSIF else
               "scene_32x32_organic_edge_v7.jpg" if ORGANIC else
               "scene_32x32_integrated_candidate.jpg" if INTEGRATED
               else "scene_32x32_natural_shore.jpg" if natural
@@ -332,7 +336,7 @@ report={"status":"TECHNICAL COMPOSITE, NOT FINAL ART",
         "authoredRiverCells":len(path),
         "shoreMaskCells":shore_cnt,
         "shoreCandidate":"natural v2" if natural else "flat v1",
-        "sceneCandidate":"continuous v9" if CONTINUOUS else "massif v8" if MASSIF else ("organic edge v7" if ORGANIC else ("integrated v6" if INTEGRATED else ("natural shore v2" if natural else "baseline"))),
+        "sceneCandidate":"textured v10" if TEXTURED else "continuous v9" if CONTINUOUS else "massif v8" if MASSIF else ("organic edge v7" if ORGANIC else ("integrated v6" if INTEGRATED else ("natural shore v2" if natural else "baseline"))),
         "cliffAssetsUsed":cliff_counts,
         "massifGeometry":massif_summary(DATA) if MASSIF else None,
         "shoreMaskSchema":"N=1,E=2,S=4,W=8; demo flat land only",
@@ -340,7 +344,7 @@ report={"status":"TECHNICAL COMPOSITE, NOT FINAL ART",
         "source":"Android PR #10 map_32x32.json exact copy",
         "components":"candidate PNG mountains/cave + procedural preview trees/river/cliffs",
         "doesNotReplace":"game tile atlas, QA or integration"}
-(ROOT/("scene_32x32_continuous_v9_report.json" if CONTINUOUS else "scene_32x32_massif_v8_report.json" if MASSIF else
+(ROOT/("scene_32x32_textured_v10_report.json" if TEXTURED else "scene_32x32_continuous_v9_report.json" if CONTINUOUS else "scene_32x32_massif_v8_report.json" if MASSIF else
         "scene_32x32_organic_edge_v7_report.json" if ORGANIC else
         "scene_32x32_integrated_candidate_report.json" if INTEGRATED
         else "scene_32x32_natural_shore_report.json" if natural
