@@ -11,12 +11,19 @@ from pathlib import Path
 import hashlib
 import json
 import sys
+import importlib.util
 from PIL import Image, ImageDraw
 
 HERE=Path(__file__).resolve().parent
 ART_ROOT=HERE.parent
-sys.path.insert(0,str(ART_ROOT/"map-005-height-faces"))
-from generate import paint,STEP
+# Both folders contain generate.py. Import via an explicit path to avoid
+# a self-import when test_mixed.py loads this module named "generate".
+SOURCE=ART_ROOT/"map-005-height-faces"/"generate.py"
+spec=importlib.util.spec_from_file_location("map005_height_face_source",SOURCE)
+height_face_module=importlib.util.module_from_spec(spec)
+spec.loader.exec_module(height_face_module)
+paint=height_face_module.paint
+STEP=height_face_module.STEP
 
 MATERIALS=("grass","rock")
 HEIGHTS=range(1,6)
