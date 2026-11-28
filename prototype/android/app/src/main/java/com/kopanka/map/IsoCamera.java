@@ -50,6 +50,13 @@ public final class IsoCamera {
         centerY -= dy / TILE_HEIGHT - dx / TILE_WIDTH;
         constrainToViewport(width, height);
     }
+    /** Restore a saved position; viewport bounds are applied on size change. */
+    public void restoreCenter(float col, float row) {
+        if (Float.isNaN(col) || Float.isInfinite(col) ||
+            Float.isNaN(row) || Float.isInfinite(row)) return;
+        centerX = Math.max(0f, Math.min(WorldMap.SIZE - 1f, col));
+        centerY = Math.max(0f, Math.min(WorldMap.SIZE - 1f, row));
+    }
     public float centerCol() { return centerX; }
     public float centerRow() { return centerY; }
 }
