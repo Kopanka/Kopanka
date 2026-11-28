@@ -180,6 +180,33 @@ jobs:
           assert ImageChops.difference(img1,img2).getbbox()
           print('PASS: same authored 32x32 geography, different terrain-edge pixels')
           PY
+      - name: Render MAP-005 massif v8 mountain-top comparison
+        env:
+          MAP005_SCENE_VARIANT: massif
+        run: python docs/art/map-004-preview/render_authored_scene.py
+      - name: Validate mountain massif demo map remains identical
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image,ImageChops
+          root=Path('docs/art/map-004-preview')
+          old=json.loads((root/'scene_32x32_organic_edge_v7_report.json').read_text())
+          new=json.loads((root/'scene_32x32_massif_v8_report.json').read_text())
+          assert new['sceneCandidate']=='massif v8'
+          assert new['authoredRiverCells']==old['authoredRiverCells']==37
+          assert new['objectsById']==old['objectsById']
+          assert new['shoreMaskCells']==old['shoreMaskCells']
+          assert new['massifGeometry']['geometry']=={'tileWidthPx':128,
+               'tileHeightPx':64,'anchor':[64,32],'zoom':1.2}
+          assert new['massifGeometry']['mountainCells']>0
+          assert new['massifGeometry']['elevatedCells']>0
+          a=Image.open(root/'scene_32x32_organic_edge_v7.jpg')
+          b=Image.open(root/'scene_32x32_massif_v8.jpg')
+          assert a.size==b.size
+          assert ImageChops.difference(a,b).getbbox()
+          print('PASS massif top rendering, fixed iso geometry, unchanged source data')
+          PY
       - name: Check authored source geography unchanged
         run: |
           python - <<'PY'
@@ -235,5 +262,7 @@ jobs:
             docs/art/map-005-join-lab/join_lab_report.json
             docs/art/map-004-preview/scene_32x32_organic_edge_v7.jpg
             docs/art/map-004-preview/scene_32x32_organic_edge_v7_report.json
+            docs/art/map-004-preview/scene_32x32_massif_v8.jpg
+            docs/art/map-004-preview/scene_32x32_massif_v8_report.json
           if-no-files-found: error
           retention-days: 30
