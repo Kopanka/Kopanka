@@ -81,6 +81,24 @@ jobs:
           python docs/art/map-005-natural-shore/test_shores.py
       - name: Assemble actual 32x32 authored scene using reusable art sprites
         run: python docs/art/map-004-preview/render_authored_scene.py
+      - name: Assemble 32x32 authored scene with MAP-005 natural shore overlays
+        env:
+          MAP005_SHORE_VARIANT: natural
+        run: python docs/art/map-004-preview/render_authored_scene.py
+      - name: Validate both scenes and authored geography identical
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=Path('docs/art/map-004-preview')
+          old=json.loads((d/'scene_32x32_report.json').read_text())
+          new=json.loads((d/'scene_32x32_natural_shore_report.json').read_text())
+          assert old['shoreMaskCells']==new['shoreMaskCells']
+          assert old['authoredRiverCells']==new['authoredRiverCells']==37
+          assert old['objectsById']==new['objectsById']
+          assert new['shoreCandidate']=='natural v2'
+          print('PASS: old/new 32x32 geography, object and river counts identical')
+          PY
       - name: Check authored source geography unchanged
         run: |
           python - <<'PY'
@@ -117,6 +135,8 @@ jobs:
             docs/art/map-004-preview/shore_png/
             docs/art/map-005-natural-shore/manifest.json
             docs/art/map-005-natural-shore/preview_16.png
+            docs/art/map-004-preview/scene_32x32_natural_shore.jpg
+            docs/art/map-004-preview/scene_32x32_natural_shore_report.json
             docs/art/map-005-natural-shore/shore_png/
           if-no-files-found: error
           retention-days: 30
