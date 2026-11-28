@@ -60,6 +60,34 @@ jobs:
         run: |
           python3 -m pip install --disable-pip-version-check 'Pillow>=10,<13'
           python3 tools/test_map005_staging.py
+      - name: Checkout PINNED approved MAP-005 source art archive
+        uses: actions/checkout@v4
+        with:
+          repository: Kopanka/Kopanka
+          ref: 6e1a5d63c713239833aeb41afa653fe3475710cb
+          path: map005-art-source
+          sparse-checkout: |
+            docs/art/map-005-intake
+      - name: Stage and verify real MAP-005 PNG artwork from GitHub
+        shell: bash
+        run: |
+          set -euo pipefail
+          ART=map005-art-source/docs/art/map-005-intake/KOPANKA_MAP005_art_handoff.zip
+          echo '119a4cc301bbae83d024a6148af959489dc9f4e4e54d2f50408850ba2f7a3c16  '"${ART}" | sha256sum --check
+          python3 tools/stage_map005_macros.py "${ART}" prototype/android/app/src/main/assets/map
+          python3 tools/validate_map_assets.py prototype/android/app/src/main/assets/map/manifest.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('prototype/android/app/src/main/assets/map')
+          index=json.loads((root/'manifest.json').read_text())
+          ids={a['id'] for a in index['assets']}
+          assert len(index['assets'])==70
+          for required in ('map005_natural_cave_02','map005_forest_mix_01',
+                           'map005_ridge_low_01','ground_grass_01'):
+              assert required in ids
+          print('PASS: 62 original tiles + 8 verified PNG macros; stable render fallback')
+          PY
       - name: Install Android platform
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: Prepare pinned TEST-ONLY debug signing keystore
