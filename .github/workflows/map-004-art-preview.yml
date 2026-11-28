@@ -8,6 +8,7 @@ on:
       - 'docs/art/map-004-preview/**'
       - 'docs/art/map-005-natural-shore/**'
       - 'docs/art/map-005-height-faces/**'
+      - 'docs/art/map-005-mixed-corners/**'
       - '.github/workflows/map-004-art-preview.yml'
   workflow_dispatch:
 
@@ -84,6 +85,10 @@ jobs:
         run: |
           python docs/art/map-005-height-faces/generate.py
           python docs/art/map-005-height-faces/test_faces.py
+      - name: Generate and verify 90 mixed-height or mixed-material E-S corners
+        run: |
+          python docs/art/map-005-mixed-corners/generate.py
+          python docs/art/map-005-mixed-corners/test_mixed.py
       - name: Assemble actual 32x32 authored scene using reusable art sprites
         run: python docs/art/map-004-preview/render_authored_scene.py
       - name: Assemble 32x32 authored scene with MAP-005 natural shore overlays
@@ -147,5 +152,8 @@ jobs:
             docs/art/map-005-height-faces/preview_20.png
             docs/art/map-005-height-faces/preview_corners_10.png
             docs/art/map-005-height-faces/cliff_png/
+            docs/art/map-005-mixed-corners/manifest.json
+            docs/art/map-005-mixed-corners/preview_16_mixed.png
+            docs/art/map-005-mixed-corners/corner_png/
           if-no-files-found: error
           retention-days: 30
