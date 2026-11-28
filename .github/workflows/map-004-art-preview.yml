@@ -114,6 +114,29 @@ jobs:
           assert new['shoreCandidate']=='natural v2'
           print('PASS: old/new 32x32 geography, object and river counts identical')
           PY
+      - name: Render integrated MAP-005 32x32 full terrain candidate
+        env:
+          MAP005_SCENE_VARIANT: integrated
+        run: python docs/art/map-004-preview/render_authored_scene.py
+      - name: Assert authored world invariant and all cliff layers exercised
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('docs/art/map-004-preview')
+          baseline=json.loads((p/'scene_32x32_report.json').read_text())
+          natural=json.loads((p/'scene_32x32_natural_shore_report.json').read_text())
+          integrated=json.loads((p/'scene_32x32_integrated_candidate_report.json').read_text())
+          for other in (natural,integrated):
+              assert baseline['objectsById']==other['objectsById']
+              assert baseline['authoredRiverCells']==other['authoredRiverCells']==37
+              assert baseline['shoreMaskCells']==other['shoreMaskCells']
+          assert integrated['sceneCandidate']=='integrated v6'
+          assert sum(integrated['cliffAssetsUsed'].values())>0
+          assert (p/'scene_32x32_integrated_candidate.jpg').stat().st_size>40000
+          print('PASS: authored landmarks, geography, shores unchanged; cliff candidates rendered')
+          print('Cliff candidates used:',integrated['cliffAssetsUsed'])
+          PY
       - name: Check authored source geography unchanged
         run: |
           python - <<'PY'
@@ -152,6 +175,8 @@ jobs:
             docs/art/map-005-natural-shore/preview_16.png
             docs/art/map-004-preview/scene_32x32_natural_shore.jpg
             docs/art/map-004-preview/scene_32x32_natural_shore_report.json
+            docs/art/map-004-preview/scene_32x32_integrated_candidate.jpg
+            docs/art/map-004-preview/scene_32x32_integrated_candidate_report.json
             docs/art/map-005-natural-shore/shore_png/
             docs/art/map-005-height-faces/manifest.json
             docs/art/map-005-height-faces/preview_20.png
